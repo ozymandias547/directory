@@ -4,7 +4,7 @@
 
 #banner {
     border-bottom: none;
-    margin-top: -20px;
+    margin-top: -40px;
 }
 
 #banner h1 {
@@ -16,10 +16,9 @@
 .hero-unit {
     position: relative;
     padding: 30px 15px;
-    color: #F5F5F5;
+    color: black;
     text-align: center;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
-    background: #4393B9;
 }
 
 .footer {
@@ -28,3 +27,21 @@
     margin-top: 70px;
     border-top: 1px solid #E5E5E5;
 }
+
+
+/*#banner {
+  display: block;
+  position: relative;
+}
+
+#banner:after {
+  content: "";
+  background: url(https://www.sarahlawrence.edu/admission/media/images/640x326xwelcome_multiple_languages.png.pagespeed.ic.LKk_1ba61q.png);
+  opacity: 0.2;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  position: absolute;
+  z-index: -1;   
+}*/

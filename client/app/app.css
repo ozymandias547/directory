@@ -37,3 +37,12 @@
     color: #000;
     padding: 0.2em 0;
 }
+
+body {
+    background: url(http://ciefc.org/templates/rhuk_milkyway/images/background-1.bmp);
+}
+
+.navbar-default {
+    background: none;
+    border: none;
+}
