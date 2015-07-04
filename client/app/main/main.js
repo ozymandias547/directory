@@ -4,8 +4,15 @@ angular.module('directoryApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('main', {
-        url: '/',
+        url: '/directory',
         templateUrl: 'app/main/main.html',
-        controller: 'MainCtrl'
+        controller: 'MainCtrl',
+        resolve: {
+        	Users:  function($http, Auth){
+            return $http({method: 'GET', url: '/api/users/getPublic'});
+	        },
+        }
       });
   });
+
+  

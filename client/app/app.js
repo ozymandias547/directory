@@ -50,4 +50,9 @@ angular.module('directoryApp', [
         }
       });
     });
+
+    $rootScope.back = function() {
+      window.history.back();
+    }
+
   });

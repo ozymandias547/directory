@@ -40,8 +40,8 @@ User.find({}).remove(function() {
     provider: 'local',
     role: 'admin',
     name: 'Admin',
-    email: 'admin@admin.com',
-    password: 'Colossians'
+    email: 'a@a.com',
+    password: 'a'
   }, function() {
       console.log('finished populating users');
     }

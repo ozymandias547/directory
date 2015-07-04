@@ -28,20 +28,24 @@
     border-top: 1px solid #E5E5E5;
 }
 
-
-/*#banner {
-  display: block;
-  position: relative;
+.user-thumbnail {
+  text-align: center;
 }
 
-#banner:after {
-  content: "";
-  background: url(https://www.sarahlawrence.edu/admission/media/images/640x326xwelcome_multiple_languages.png.pagespeed.ic.LKk_1ba61q.png);
-  opacity: 0.2;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  position: absolute;
-  z-index: -1;   
-}*/
+.user-picture {
+  margin: 10px;
+  display: inline-block;
+  border-radius: 50%;
+  background: gray;
+  width: 100px;
+  height: 100px;
+  background: url(https://pixabay.com/static/uploads/photo/2012/04/26/19/43/profile-42914_640.png);
+  background-size: 100% 100%; 
+}
+
+.user-name,
+.user-email {
+  text-align: center;
+}
+
+

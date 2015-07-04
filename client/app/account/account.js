@@ -3,8 +3,18 @@
 angular.module('directoryApp')
   .config(function ($stateProvider) {
     $stateProvider
+      .state('profile', {
+        url: '/profile',
+        templateUrl: 'app/account/profile/profile.html',
+        controller: 'ProfileCtrl'
+      })
+       .state('forgot', {
+        url: '/forgot',
+        templateUrl: 'app/account/forgot/forgot.html',
+        controller: 'ForgotCtrl'
+      })
       .state('login', {
-        url: '/login',
+        url: '/',
         templateUrl: 'app/account/login/login.html',
         controller: 'LoginCtrl'
       })

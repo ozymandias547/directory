@@ -1,27 +1,31 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
-<header class="hero-unit" id="banner">
-  <div class="container">
-    <h1>CIEFC Church Directory</h1>
-    <img src="assets/images/yeoman.png" alt="I'm Yeoman">
-  </div>
-</header>
-
 <div class="container">
-  <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">Features:</h1>
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="thing in awesomeThings">
-        <li><a href="#" tooltip="{{thing.info}}">{{thing.name}}</a></li>
-      </ul>
+    <div class="row">
+        <div class="col-sm-12">
+            <form class="form-inline">
+                <div class="form-group">
+                    <label for="inputPassword2" class="sr-only">Password</label>
+                    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+                </div>
+                <button type="submit" class="btn btn-lg btn-primary">Search</button>
+            </form>
+        </div>
     </div>
-  </div>
+    <div class="row">
+        <div class="col-xs-3" ng-repeat="user in users track by $index">
+          <div class="user-thumbnail">
+            <div class="user-picture"></div>
+            <div class="user-name">{{user.name}}</div>
+            <div class="user-email">{{user.email}}</div>
+          </div>
+        </div>
+    </div>
 </div>
-
 <footer class="footer">
-  <div class="container">
-      <p>CIEFC &#169 2015 |
-        <a href="https://www.facebook.com/joseph.jung.14">Created by Joseph Jung</a> |
-         <a href="https://github.com/ozymandias547/directory/issues">Report Bug</a></p>
-  </div>
+    <div class="container">
+        <p>CIEFC &#169 2015 |
+            <a href="https://www.facebook.com/joseph.jung.14">Created by Joseph Jung</a> |
+            <a href="https://github.com/ozymandias547/directory/issues">Report Bug</a></p>
+    </div>
 </footer>

@@ -1,0 +1,23 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <h1>Forgot Password</h1>
+    </div>
+    <div class="col-sm-offset-3 col-sm-6">
+      <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+        <div class="form-group">
+          <label>Email Address</label>
+          <input type="email" name="email" class="form-control" ng-model="user.email"
+                 mongoose-error/>
+          <p class="help-block" ng-show="form.password.$error.mongoose">
+              {{ errors.other }}
+          </p>
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">Recover Password</button>
+        <button class="btn btn-link" type="button" ng-click="back()">Cancel</button>
+      </form>
+    </div>
+  </div>
+</div>
