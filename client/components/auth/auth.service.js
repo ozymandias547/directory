@@ -94,9 +94,7 @@ angular.module('directoryApp')
 
       updateProfile: function(userData, callback) {
          var cb = callback || angular.noop;
-         return User.update({ id: userData._id }, {
-          userData
-        }, function(user) {
+         return User.update({ id: userData._id }, { userData: userData }, function(user) {
           return cb(user);
         }, function(err) {
           return cb(err);

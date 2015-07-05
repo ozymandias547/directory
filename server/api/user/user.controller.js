@@ -4,6 +4,7 @@ var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
 var jwt = require('jsonwebtoken');
+var _ = require('lodash');
 
 var validationError = function(res, err) {
   return res.json(422, err);
@@ -75,12 +76,12 @@ exports.destroy = function(req, res) {
  */
 exports.update = function(req, res) {
 
-console.log(req.body)
-
   var userId = req.body.userData._id;
+  var userData = _.omit(req.body.userData, '_id');
 
-  User.update({_id : userId}, req.body.userData, function (err, user) {
+  User.update({_id : userId}, userData, function (err, user) {
     if (err) {
+      console.log(err);
       res.send(500);
     } else {
       console.log(user);

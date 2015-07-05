@@ -42,17 +42,12 @@ body {
     background: url(http://ciefc.org/templates/rhuk_milkyway/images/background-1.bmp);
 }
 
-.navbar-default {
-    background: none;
-    border: none;
+.navbar-default .navbar-text {
+  color: black;
 }
 
-.navbar-default .navbar-nav > .active > a,
-.navbar-default .navbar-nav > .active > a:hover, 
-.navbar-default .navbar-nav > .active > a:focus {
-  text-decoration: underline;
-  color: black;
-  background-color: transparent;
+.modal-backdrop.in {
+  opacity: 0;
 }
 
 .form-control {
@@ -81,9 +76,4 @@ body {
 
 h1 {
     color: rgb(35, 92, 70);
-}
-
-.navbar-default .navbar-text,
-.navbar-default .navbar-nav {
-  font-size: 18px;
 }
