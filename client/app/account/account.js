@@ -4,9 +4,14 @@ angular.module('directoryApp')
   .config(function ($stateProvider) {
     $stateProvider
       .state('profile', {
-        url: '/profile',
+        url: '/profile/:userId',
         templateUrl: 'app/account/profile/profile.html',
-        controller: 'ProfileCtrl'
+        controller: 'ProfileCtrl',
+        resolve: {
+          ProfileData: function($stateParams, User) {
+            return User.get({ id: $stateParams.userId }).$promise;
+          }
+        }
       })
        .state('forgot', {
         url: '/forgot',

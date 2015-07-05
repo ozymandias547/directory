@@ -4,7 +4,7 @@ angular.module('directoryApp')
   .factory('Auth', function Auth($location, $rootScope, $http, User, $cookieStore, $q) {
     var currentUser = {};
     if($cookieStore.get('token')) {
-      currentUser = User.get();
+      currentUser = User.getMe();
     }
 
     return {
@@ -26,7 +26,7 @@ angular.module('directoryApp')
         }).
         success(function(data) {
           $cookieStore.put('token', data.token);
-          currentUser = User.get();
+          currentUser = User.getMe();
           deferred.resolve(data);
           return cb();
         }).
@@ -62,7 +62,7 @@ angular.module('directoryApp')
         return User.save(user,
           function(data) {
             $cookieStore.put('token', data.token);
-            currentUser = User.get();
+            currentUser = User.getMe();
             return cb(user);
           },
           function(err) {
@@ -85,6 +85,17 @@ angular.module('directoryApp')
         return User.changePassword({ id: currentUser._id }, {
           oldPassword: oldPassword,
           newPassword: newPassword
+        }, function(user) {
+          return cb(user);
+        }, function(err) {
+          return cb(err);
+        }).$promise;
+      },
+
+      updateProfile: function(userData, callback) {
+         var cb = callback || angular.noop;
+         return User.update({ id: userData._id }, {
+          userData
         }, function(user) {
           return cb(user);
         }, function(err) {

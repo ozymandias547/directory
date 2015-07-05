@@ -10,13 +10,14 @@ angular.module('directoryApp')
 
       if(form.$valid) {
         Auth.createUser({
-          name: $scope.user.name,
+          firstname: $scope.user.firstname,
+          lastname: $scope.user.lastname,
           email: $scope.user.email,
           password: $scope.user.password
         })
         .then( function() {
           // Account created, redirect to home
-          $location.path('/');
+          $location.path('/directory');
         })
         .catch( function(err) {
           err = err.data;

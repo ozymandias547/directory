@@ -15,6 +15,7 @@ var errorHandler = require('errorhandler');
 var path = require('path');
 var config = require('./environment');
 var passport = require('passport');
+var multer  = require('multer');
 
 module.exports = function(app) {
   var env = app.get('env');
@@ -23,10 +24,22 @@ module.exports = function(app) {
   app.engine('html', require('ejs').renderFile);
   app.set('view engine', 'html');
   app.use(compression());
-  app.use(bodyParser.urlencoded({ extended: false }));
+  app.use(bodyParser.urlencoded({ extended: true }));
   app.use(bodyParser.json());
   app.use(methodOverride());
   app.use(cookieParser());
+  app.use(multer({
+    dest: './public/uploads/',
+    rename: function (fieldname, filename) {
+      return fieldname.toUpperCase() + filename.replace(/\W+/g, '-').toLowerCase() + Date.now()
+    },
+    limits : {
+      fieldNameSize: 100,
+      files: 2,
+      fields: 50,
+      fileSize: 1000000
+    }
+  }))
   app.use(passport.initialize());
   if ('production' === env) {
     app.use(favicon(path.join(config.root, 'public', 'favicon.ico')));

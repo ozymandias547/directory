@@ -70,6 +70,26 @@ exports.destroy = function(req, res) {
 };
 
 /**
+ * Updates a user
+ * restriction: 'user'
+ */
+exports.update = function(req, res) {
+
+console.log(req.body)
+
+  var userId = req.body.userData._id;
+
+  User.update({_id : userId}, req.body.userData, function (err, user) {
+    if (err) {
+      res.send(500);
+    } else {
+      console.log(user);
+      res.send(200);
+    }
+  });
+};
+
+/**
  * Change a users password
  */
 exports.changePassword = function(req, res, next) {

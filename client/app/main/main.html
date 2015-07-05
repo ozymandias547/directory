@@ -1,24 +1,26 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 
 <div class="container">
-    <div class="row">
+ <!--    <div class="row">
         <div class="col-sm-12">
             <form class="form-inline">
                 <div class="form-group">
                     <label for="inputPassword2" class="sr-only">Password</label>
                     <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
-                </div>
+                </div>n
                 <button type="submit" class="btn btn-lg btn-primary">Search</button>
             </form>
         </div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="col-xs-3" ng-repeat="user in users track by $index">
+          <a ng-href="/profile/{{user._id}}">
           <div class="user-thumbnail">
             <div class="user-picture"></div>
-            <div class="user-name">{{user.name}}</div>
-            <div class="user-email">{{user.email}}</div>
+            <h4 class="user-name">{{user.firstname}} {{user.lastname}}</h4>
+            <h4 class="user-email">{{user.email}}</h4>
           </div>
+          </a>
         </div>
     </div>
 </div>

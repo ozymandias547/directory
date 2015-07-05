@@ -11,6 +11,7 @@ angular.module('directoryApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.currentUserId = Auth.getCurrentUser()._id;
 
     $scope.logout = function() {
       Auth.logout();

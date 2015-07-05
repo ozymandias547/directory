@@ -83,8 +83,7 @@ h1 {
     color: rgb(35, 92, 70);
 }
 
-/*.btn-link,
-.btn-link:hover,
-.btn-link:focus {
-    color: #1ab188;
-}*/
+.navbar-default .navbar-text,
+.navbar-default .navbar-nav {
+  font-size: 18px;
+}
