@@ -7,7 +7,7 @@
         <div class="col-sm-12">
             <h4><strong>Name:</strong> {{firstname}} {{lastname}}</h4>
             <h4><strong>Email:</strong> {{email}}</h4>
-            <h4><strong>Phone #:</strong> {{phone}}</h4>
+            <h4 ng-show="phone"><strong>Phone #:</strong> {{phone | tel}}</h4>
             <button class="btn btn-lg btn-primary" ng-show="isCurrentUser" ng-click="change()">Change</button>
         </div>
     </div>
@@ -32,7 +32,7 @@
             </div>
             <div class="form-group">
                 <label for="name">Phone:</label>
-                <input class="form-control" ng-model="phone" type="text" id="phone" />
+                <input class="form-control" ng-model="phone" type="text" id="phone" phone-input />
             </div>
         </div>
         <div class="modal-footer">
