@@ -30,6 +30,7 @@
 
 .user-thumbnail {
   text-align: center;
+  padding: 10px;
 }
 
 .user-picture {
@@ -48,4 +49,16 @@
   text-align: center;
 }
 
+.col-xs-3 {
+  padding-left: 5px;
+  padding-right: 5px;
+}
 
+.directory img {
+  width: 100%;
+}
+
+.directory .col-xs-5 {
+  padding-left: 0;
+  overflow: hidden;
+}

@@ -7,23 +7,11 @@ angular.module('directoryApp')
         $scope.lastname = ProfileData.lastname;
         $scope.email = ProfileData.email;
         $scope.phone = ProfileData.phone;
+        $scope.picture = ProfileData.picture;
 
         $scope.isCurrentUser = ProfileData._id === Auth.getCurrentUser()._id;
         $scope.myImage = '';
         $scope.myCroppedImage = '';
-
-        var handleFileSelect = function(evt) {
-            var file = evt.currentTarget.files[0];
-            var reader = new FileReader();
-            reader.onload = function(evt) {
-                $scope.$apply(function($scope) {
-                    $scope.myImage = evt.target.result;
-                });
-            };
-            reader.readAsDataURL(file);
-        };
-
-        angular.element(document.querySelector('#fileInput')).on('change', handleFileSelect);
 
         $scope.change = function() {
 
@@ -40,43 +28,29 @@ angular.module('directoryApp')
             });
 
             modalInstance.result.then(function(modifiedUserData) {
-                  $scope.firstname = modifiedUserData.firstname;
-        $scope.lastname = modifiedUserData.lastname;
-        $scope.email = modifiedUserData.email;
-        $scope.phone = modifiedUserData.phone;
-
-
-
+                $scope.firstname = modifiedUserData.firstname;
+                $scope.lastname = modifiedUserData.lastname;
+                $scope.email = modifiedUserData.email;
+                $scope.phone = modifiedUserData.phone;
+                $scope.picture = modifiedUserData.picture;
             }, function() {
             });
 
         };
 
-        // $scope.save = function() {
+         $scope.randomDefaultPic = function() {
 
-        //     var file = $scope.selectedFile[0];
-        //     var formData = _.clone($scope.listing);
+        var pics = [
+            "http://facebookcraze.com/wp-content/uploads/2010/10/funny-different-facebook-profile-pic-chicken.jpg",
+            "http://www.theprofilepictures.com/wp-content/uploads/2011/08/alternative-facebook-profile-picture-superman-funny-joke.jpg",
+            "http://www.theprofilepictures.com/wp-content/uploads/2011/08/alternative-facebook-profile-picture-superman-funny-joke.jpg",
+            "http://www.vincegolangco.com/wp-content/uploads/2010/12/mickey-mouse-for-facebook.jpg",
+            "http://media-cache-ec0.pinimg.com/236x/1c/76/36/1c7636906717be2719923f3e83c4502c.jpg"
+        ]
 
-        //     formData.categoryID = formData.category._id;
-        //     formData = _.omit(formData, "category");
+        return pics[Math.floor(Math.random() * 5)];
 
-        //     $scope.upload = $upload.upload({
-        //         url: contextPath + '/api/listings',
-        //         method: 'POST',
-        //         data: formData,
-        //         file: file
-        //     }).progress(function(evt) {
-        //         $scope.uploadProgress = parseInt(100.0 * evt.loaded / evt.total, 10);
-        //     }).success(function(data) {
-        //         alert("New listing added!")
-        //     });
-
-        // }
-
-        // $scope.onFileSelect = function($files) {
-        //     $scope.uploadProgress = 0;
-        //     $scope.selectedFile = $files;
-        // };
+    }
 
 
     });
@@ -88,6 +62,7 @@ angular.module('directoryApp')
         $scope.lastname = ProfileData.lastname;
         $scope.email = ProfileData.email;
         $scope.phone = ProfileData.phone;
+        $scope.picture = ProfileData.picture;
 
         $scope.ok = function() {
 
@@ -98,7 +73,8 @@ angular.module('directoryApp')
                     firstname: $scope.firstname,
                     lastname: $scope.lastname,
                     email: $scope.email,
-                    phone: $scope.phone
+                    phone: $scope.phone,
+                    picture : $scope.picture
                 })
                 .then(function() {
                     $scope.isProcessing = false;
@@ -106,7 +82,8 @@ angular.module('directoryApp')
                         firstname : $scope.firstname,
                         lastname : $scope.lastname,
                         email : $scope.email,
-                        phone : $scope.phone
+                        phone : $scope.phone,
+                        picture : $scope.picture
                     });
                 })
                 .catch(function() {

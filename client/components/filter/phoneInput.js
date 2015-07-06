@@ -38,7 +38,7 @@ angular.module('directoryApp').directive('phoneInput', function($filter, $browse
 
 angular.module('directoryApp').filter('tel', function () {
     return function (tel) {
-        console.log(tel);
+        
         if (!tel) { return ''; }
 
         var value = tel.toString().trim().replace(/^\+/, '');

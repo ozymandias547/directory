@@ -77,3 +77,15 @@ body {
 h1 {
     color: rgb(35, 92, 70);
 }
+
+.navbar-default .navbar-nav > li > a {
+  font-size: 18px;
+}
+
+.navbar-default .navbar-text {
+    color: black;
+  font-size: 18px;
+  padding: 0;
+  margin-bottom: 10px;
+  margin-top: 16px;
+}
