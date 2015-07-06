@@ -47,11 +47,19 @@
 .user-name,
 .user-email {
   text-align: center;
+  font-size: 14px;
+  color: black;
 }
 
-.col-xs-3 {
-  padding-left: 5px;
-  padding-right: 5px;
+.user-name {
+  margin-top: 24px;
+}
+
+.profile-item {
+  margin: 3px;
+  overflow-wrap: break-word;
+  max-height: 100px;
+  overflow: hidden;
 }
 
 .directory img {
@@ -61,4 +69,8 @@
 .directory .col-xs-5 {
   padding-left: 0;
   overflow: hidden;
+}
+
+.user-name {
+
 }

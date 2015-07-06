@@ -2,19 +2,21 @@
 
 <div class="container directory">
     <div class="row">
-        <div class="col-xs-4 panel panel-default" ng-repeat="user in users track by $index">
-          <a ng-href="/profile/{{user._id}}">
-          <div class="row">
-               <div class="col-xs-5">
-                   <img ng-src="{{user.picture || randomDefaultPic()}}" />
-                   <!-- <img ng-show="{{!user.picture}}" ng-src="{{randomDefaultPic()}}" /> -->
-               </div>
-               <div class="col-xs-7">
-                   <h5 class="user-name">{{user.firstname}} {{user.lastname}}</h5>
-                    <h5 class="user-email">{{user.email}}</h5>
-               </div>
-          </div>
-          </a>
+        <div class="col-xs-4" ng-repeat="user in users track by $index">
+          <div class="profile-item panel panel-default">
+            <a ng-href="/profile/{{user._id}}">
+            <div class="clearfix">
+                 <div class="col-xs-5">
+                     <img ng-src="{{user.picture || randomDefaultPic()}}" />
+                     <!-- <img ng-show="{{!user.picture}}" ng-src="{{randomDefaultPic()}}" /> -->
+                 </div>
+                 <div class="col-xs-7">
+                     <div class="user-name">{{user.firstname}} {{user.lastname}}</div>
+                      <div class="user-email">{{user.email}}</div>
+                 </div>
+            </div>
+            </a>
+            </div>
         </div>
     </div>
 </div>
