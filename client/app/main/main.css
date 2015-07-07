@@ -40,6 +40,10 @@
     background: url(http://media-cache-ec0.pinimg.com/236x/1c/76/36/1c7636906717be2719923f3e83c4502c.jpg);
 }
 
+.large-thumbs .thumb-picture {
+    height: 150px;
+}
+
 .user-name,
 .user-email {
     text-align: center;
@@ -85,6 +89,10 @@
   color: black;
 }
 
+.btn-group {
+  margin-bottom: 30px;
+}
+
 @media (min-width: 768px) {
     
     .navbar-text {
@@ -104,6 +112,13 @@
         width: 100px;
         height: 100px;
     }
+
+.large-thumbs .thumb-picture {
+    height: 150px;
+     width: 150px;
+}
+
+
     .user-name {
         margin-top: 24px;
         font-size: 16px;

@@ -1,29 +1,63 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
 <div class="container directory">
     <div class="row">
-        <div class="col-xs-4" ng-repeat="user in users track by $index">
-          <div class="profile-item panel panel-default">
-            <a ng-href="/profile/{{user._id}}">
-            <div class="clearfix">
-                 <div class="col-md-5">
-                    <div class="thumb-picture" style="background-image: url({{user.picture || defaultPic() }}); background-size: cover;"></div>
-                     
-                 </div>
-                 <div class="col-md-7">
-                     <div class="user-name">{{user.firstname}} {{user.lastname}}</div>
-                      <div class="user-email">{{user.email}}</div>
-                 </div>
+        <div class="col-xs-6">
+            <div class="form-group">
+                <input class="form-control" type="text" placeholder="Search" ng-model="search">
             </div>
-            </a>
+        </div>
+        <div class="col-xs-6" >
+            <div class="btn-group">
+                <a href="#" class="btn btn-default" ng-class="{active: mode ==='list'}" ng-click="setDisplayMode('list')"><span class="glyphicon glyphicon-th-list"></span></a>
+                <a href="#" class="btn btn-default" ng-class="{active: mode ==='tile'}"  ng-click="setDisplayMode('tile')"><span class="glyphicon glyphicon-th"></span></a>
+                <a href="#" class="btn btn-default" ng-class="{active: mode ==='lg-tile'}"  ng-click="setDisplayMode('lg-tile')"><span class="glyphicon glyphicon-th-large"></span></a>
             </div>
         </div>
     </div>
-</div>
-<footer class="footer">
-    <div class="container">
-        <p>CIEFC &#169 2015 |
-            <a href="https://www.facebook.com/joseph.jung.14">Created by Joseph Jung</a> |
-            <a href="https://github.com/ozymandias547/directory/issues">Report Bug</a></p>
+   
+    <div class="row">
+        <div class="col-xs-4" ng-show="mode ==='tile'" ng-repeat="user in users | filter:search">
+            <div class="profile-item panel panel-default">
+                <a ng-href="/profile/{{user._id}}">
+                    <div class="clearfix">
+                        <div class="col-md-5">
+                            <div class="thumb-picture" style="background-image: url({{user.picture || defaultPic() }}); background-size: cover;"></div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="user-name">{{user.firstname}} {{user.lastname}}</div>
+                            <div class="user-email">{{user.email}}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-6  large-thumbs" ng-show="mode ==='lg-tile'" ng-repeat="user in users | filter:search">
+            <div class="profile-item panel panel-default">
+                <a ng-href="/profile/{{user._id}}">
+                    <div class="clearfix">
+                        <div class="col-md-5">
+                            <div class="thumb-picture" style="background-image: url({{user.picture || defaultPic() }}); background-size: cover;"></div>
+                        </div>
+                        <div class="col-md-7">
+                            <div class="user-name">{{user.firstname}} {{user.lastname}}</div>
+                            <div class="user-email">{{user.email}}</div>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+        <div class="col-xs-12" ng-show="mode ==='list'">
+            <ul class="list-group">
+                <li class="list-group-item" ng-repeat="user in users | filter:search">
+                    <a ng-href="/profile/{{user._id}}">{{user.firstname}} {{user.lastname}}</a>
+                </li>
+            </ul>
+        </div>
     </div>
-</footer>
+    <footer class="footer">
+        <div class="container">
+            <p>CIEFC &#169 2015 |
+                <a href="https://www.facebook.com/joseph.jung.14">Created by Joseph Jung</a> |
+                <a href="https://github.com/ozymandias547/directory/issues">Report Bug</a></p>
+        </div>
+    </footer>

@@ -3,7 +3,7 @@
 angular.module('directoryApp')
   .controller('MainCtrl', function ($scope, Auth, $location, Users) {
     $scope.users = Users.data;
-
+    $scope.mode = "tile";
     $scope.section = "Directory";
 
     $scope.defaultPic = function() {
@@ -18,6 +18,10 @@ angular.module('directoryApp')
 
 		return "http://media-cache-ec0.pinimg.com/236x/1c/76/36/1c7636906717be2719923f3e83c4502c.jpg";
 
+	}
+
+	$scope.setDisplayMode = function(mode) {
+		$scope.mode = mode;
 	}
 
   });
