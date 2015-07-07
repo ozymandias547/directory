@@ -24,4 +24,31 @@ angular.module('directoryApp')
 		$scope.mode = mode;
 	}
 
+	$scope.groupBy = "lastnameAsc";
+
+	$scope.onSelectChange = function() {
+
+		$scope.users = Users.data.sort(function(a, b) {
+			
+			if ($scope.groupBy === "firstnameAsc") {
+				return a.firstname < b.firstname;
+			}
+
+			if ($scope.groupBy === "firstnameDes") {
+				return a.firstname > b.firstname;
+			}
+
+			if ($scope.groupBy === "lastnameAsc") {
+				return a.firstname < b.firstname;
+			}
+
+			if ($scope.groupBy === "lastnameDes") {
+				return a.firstname > b.firstname;
+			}
+
+
+		});
+
+	};
+
   });

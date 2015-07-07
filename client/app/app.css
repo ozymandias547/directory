@@ -80,9 +80,10 @@ h1 {
 
 input[type=text], 
 input[type=password],
-input[type=email]{
-    background-color: white;
-  height: 40px;
+input[type=email],
+select {
+    background-color: white !important;
+  height: 40px !important;
   padding-left: 10px !important; 
 }
 
