@@ -6,11 +6,11 @@
           <div class="profile-item panel panel-default">
             <a ng-href="/profile/{{user._id}}">
             <div class="clearfix">
-                 <div class="col-xs-5">
-                     <img ng-src="{{user.picture || randomDefaultPic()}}" />
-                     <!-- <img ng-show="{{!user.picture}}" ng-src="{{randomDefaultPic()}}" /> -->
+                 <div class="col-md-5">
+                    <div class="thumb-picture" style="background-image: url({{user.picture || defaultPic() }}); background-size: cover;"></div>
+                     
                  </div>
-                 <div class="col-xs-7">
+                 <div class="col-md-7">
                      <div class="user-name">{{user.firstname}} {{user.lastname}}</div>
                       <div class="user-email">{{user.email}}</div>
                  </div>

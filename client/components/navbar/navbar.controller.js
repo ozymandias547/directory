@@ -2,10 +2,6 @@
 
 angular.module('directoryApp')
   .controller('NavbarCtrl', function ($scope, $location, Auth) {
-    $scope.menu = [{
-      'title': 'Home',
-      'link': '/'
-    }];
 
     $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn;
@@ -21,4 +17,5 @@ angular.module('directoryApp')
     $scope.isActive = function(route) {
       return route === $location.path();
     };
+    
   });

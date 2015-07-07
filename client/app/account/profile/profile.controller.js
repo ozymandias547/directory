@@ -3,6 +3,8 @@
 angular.module('directoryApp')
     .controller('ProfileCtrl', function($scope, Upload, ProfileData, Auth, $modal) {
 
+        $scope.section = ProfileData.firstname + "'s Profile";
+
         $scope.firstname = ProfileData.firstname;
         $scope.lastname = ProfileData.lastname;
         $scope.email = ProfileData.email;
