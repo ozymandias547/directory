@@ -43,12 +43,12 @@ body {
 
     /*background: url(https://tabormenno.files.wordpress.com/2012/12/brown_grungy_concrete_seamless17.jpg?w=900);*/
     /*background: url(https://tabormenno.files.wordpress.com/2012/12/yellow-seamless-paper-texture-pattern-500x500_24.jpg?w=1000);*/
-    background: url(/paper.jpg);
+    background: url(/assets/images/paper.jpg);
     /*background: url(http://ciefc.org/templates/rhuk_milkyway/images/background-1.bmp);*/
 }
 
 .navbar {
-  background: url(/wood.jpg);
+  background: url(/assets/images/wood.jpg);
 }
 
 .navbar-default .navbar-text {
