@@ -61,6 +61,7 @@
     margin: 3px;
     overflow-wrap: break-word;
       min-width: 100px;
+      position: relative;
 }
 
 .directory img {
@@ -90,7 +91,42 @@
 }
 
 .btn-group {
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
+}
+
+.select-profile-button {
+    position: absolute;
+  top: 5px;
+  right: 5px;
+  z-index: 10000;
+  font-size: 18px;
+  color: #ccc;
+}
+
+table .select-profile-button {
+  position: static;
+}
+
+.selected-users {
+  min-height: 30px;
+  padding-bottom: 10px;
+}
+
+.selected-users .btn-group {
+  float: left;
+  margin: 0;
+  margin-right: 7px
+}
+
+.selected-users .user-name-container {
+    float: left;
+  padding: 6px;
+  margin-bottom: 0px;
+  margin-right: 5px;
+}
+
+.select-profile-button.selected {
+  color: green;
 }
 
 @media (min-width: 768px) {
