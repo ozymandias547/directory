@@ -39,6 +39,7 @@
             <div class="btn-group">
                 <a href="mailto:{{ buildMailToList() }}" class="btn btn-default"><span class="glyphicon glyphicon-envelope"></a>
                 <a ng-click="copyToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></a>
+                <a ng-click="copyPhoneToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-phone"></a>
             </div>
             <div class=" panel panel-default clearfix user-name-container" ng-repeat="selectedUser in selectedProfiles">
                 <span>{{selectedUser.firstname}} {{selectedUser.lastname}} <span ng-click="selectProfile($event, selectedUser._id);" class="glyphicon glyphicon-remove"></span>

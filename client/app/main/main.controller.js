@@ -91,9 +91,22 @@ angular.module('directoryApp')
 
 
             window.prompt("Copy to clipboard: Ctrl+C, Enter", list);
-
-
         }
+
+        $scope.copyPhoneToClipboard = function() {
+            var list = "";
+
+            $scope.selectedProfiles.forEach(function(profile, idx) {
+                if (profile.phone) {
+                	list += profile.phone + (idx === $scope.selectedProfiles.length - 1 ? "" : ",");
+                }
+            });
+
+
+            window.prompt("Copy to clipboard: Ctrl+C, Enter", list);
+        }
+
+        
 
 
 
