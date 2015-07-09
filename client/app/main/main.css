@@ -25,7 +25,6 @@
     text-align: center;
     padding: 30px 0;
     margin-top: 70px;
-    border-top: 1px solid #E5E5E5;
 }
 
 .user-thumbnail {
@@ -60,8 +59,9 @@
 .profile-item {
     margin: 3px;
     overflow-wrap: break-word;
-      min-width: 100px;
-      position: relative;
+    min-width: 100px;
+    position: relative;
+    background: rgb(255, 250, 242);
 }
 
 .directory img {
@@ -75,71 +75,72 @@
 }
 
 .navbar-nav {
-  margin: 0;
-  width: 100%;
-  border-top: 1px solid black;
-  padding: 5px;
+    margin: 0;
+    width: 100%;
+    border-top: 1px solid black;
+    padding: 5px;
 }
 
 .section-name {
     display: inline-block;
-  font-weight: bold;
-  padding-top: 17px;
-  padding-left: 20px;
-  font-size: 18px;
-  color: black;
+    font-weight: bold;
+    padding-top: 14px;
+    padding-left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 20px;    
+    text-shadow: rgba(255, 255, 255, 0.2) 3px 2px 3px;
 }
 
 .btn-group {
-  /*margin-bottom: 30px;*/
+    /*margin-bottom: 30px;*/
 }
 
 .select-profile-button {
     position: absolute;
-  top: 5px;
-  right: 5px;
-  z-index: 10000;
-  font-size: 18px;
-  color: #ccc;
+    top: 5px;
+    right: 5px;
+    z-index: 10000;
+    font-size: 18px;
+    color: #ccc;
 }
 
 table .select-profile-button {
-  position: static;
+    position: static;
 }
 
 .selected-users {
-  min-height: 30px;
-  padding-bottom: 10px;
+    min-height: 30px;
+    padding-bottom: 10px;
 }
 
 .selected-users .btn-group {
-  float: left;
-  margin: 0;
-  margin-right: 7px
+    float: left;
+    margin: 0;
+    margin-right: 7px
 }
 
 .selected-users .user-name-container {
     float: left;
-  padding: 6px;
-  margin-bottom: 0px;
-  margin-right: 5px;
+    padding: 6px;
+    margin-bottom: 0px;
+    margin-right: 5px;
 }
 
 .select-profile-button.selected {
-  color: green;
+    color: green;
 }
 
 @media (min-width: 768px) {
-    
     .navbar-text {
         display: none;
     }
-
     .navbar-nav {
-      margin: 0;
-      width: auto;
-      border-top: none;
-      padding: 0px;
+        margin: 0;
+        width: auto;
+        border-top: none;
+        padding: 0px;
     }
 }
 
@@ -148,16 +149,12 @@ table .select-profile-button {
         width: 100px;
         height: 100px;
     }
-
-.large-thumbs .thumb-picture {
-    height: 150px;
-     width: 150px;
-}
-
-
+    .large-thumbs .thumb-picture {
+        height: 150px;
+        width: 150px;
+    }
     .user-name {
         margin-top: 24px;
         font-size: 16px;
     }
-
 }

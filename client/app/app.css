@@ -39,11 +39,50 @@
 }
 
 body {
-    background: url(http://ciefc.org/templates/rhuk_milkyway/images/background-1.bmp);
+
+
+    /*background: url(https://tabormenno.files.wordpress.com/2012/12/brown_grungy_concrete_seamless17.jpg?w=900);*/
+    /*background: url(https://tabormenno.files.wordpress.com/2012/12/yellow-seamless-paper-texture-pattern-500x500_24.jpg?w=1000);*/
+    background: url(/paper.jpg);
+    /*background: url(http://ciefc.org/templates/rhuk_milkyway/images/background-1.bmp);*/
+}
+
+.navbar {
+  background: url(/wood.jpg);
 }
 
 .navbar-default .navbar-text {
   color: black;
+}
+.panel {
+  background: rgb(255, 250, 242);
+}
+
+.panel-warning > .panel-heading {
+  background-color: #B8720B;
+}
+
+.panel-title {
+  font-size: 18px;
+  color: white;
+
+}
+
+.navbar-default .navbar-nav > li > a {
+  /*font-size: 25px;*/
+  font-weight: bold;
+  /*rgb(255, 233, 194)*/
+
+color: rgba(0, 0, 0, 0.6);
+/*background-color: rgb(110, 110, 110);*/
+text-shadow: rgba(255, 255, 255, 0.2) 3px 2px 3px;
+
+}
+
+.navbar-default .navbar-nav > .active > a, .navbar-default .navbar-nav > .active > a:hover, .navbar-default .navbar-nav > .active > a:focus {
+  color: #212121;
+  background-color: rgba(255, 250, 242,0.5);
+  border-radius: 0;
 }
 
 .modal-backdrop.in {
