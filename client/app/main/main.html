@@ -27,19 +27,19 @@
                 <label>View mode:</label>
             </div>
             <div class="btn-group">
-                <a href="#" class="btn btn-default" ng-class="{active: viewMode ==='list'}" ng-click="setDisplayMode('list')"><span class="glyphicon glyphicon-th-list"></span></a>
-                <a href="#" class="btn btn-default" ng-class="{active: viewMode ==='tile'}" ng-click="setDisplayMode('tile')"><span class="glyphicon glyphicon-th"></span></a>
-                <a href="#" class="btn btn-default" ng-class="{active: viewMode ==='lg-tile'}" ng-click="setDisplayMode('lg-tile')"><span class="glyphicon glyphicon-th-large"></span></a>
+                <a href="#" tooltip="List" class="btn btn-default" ng-class="{active: viewMode ==='list'}" ng-click="setDisplayMode('list')"><span class="glyphicon glyphicon-th-list"></span></a>
+                <a href="#" tooltip="Small tiles" class="btn btn-default" ng-class="{active: viewMode ==='tile'}" ng-click="setDisplayMode('tile')"><span class="glyphicon glyphicon-th"></span></a>
+                <a href="#" tooltip="Large tiles" class="btn btn-default" ng-class="{active: viewMode ==='lg-tile'}" ng-click="setDisplayMode('lg-tile')"><span class="glyphicon glyphicon-th-large"></span></a>
             </div>
         </div>
         <div class="col-xs-12 selected-users">
             <div>
-                <label>Selected users:</label>
+                <label>Selected users: <a class="whatisthis" tooltip="Build custom user email or phone groups by selecting the check mark on their profile cards and using the option buttons below.">what is this</a></label>
             </div>
             <div class="btn-group">
-                <a href="mailto:{{ buildMailToList() }}" class="btn btn-default"><span class="glyphicon glyphicon-envelope"></a>
-                <a ng-click="copyToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></a>
-                <a ng-click="copyPhoneToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-phone"></a>
+                <a tooltip="Email selected users"  href="mailto:{{ buildMailToList() }}" class="btn btn-default"><span class="glyphicon glyphicon-envelope"></a>
+                <a tooltip="Copy email addresses of selected users" ng-click="copyToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></a>
+                <a tooltip="Copy phone numbers of selected users" ng-click="copyPhoneToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-phone"></a>
             </div>
             <div class=" panel panel-default clearfix user-name-container" ng-repeat="selectedUser in selectedProfiles">
                 <span>{{selectedUser.firstname}} {{selectedUser.lastname}} <span ng-click="selectProfile($event, selectedUser._id);" class="glyphicon glyphicon-remove"></span>

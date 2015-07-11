@@ -142,6 +142,13 @@ table {
     background: #f9f9f9;
 }
 
+.whatisthis  {
+
+  font-size: 10px;
+  color: blue;
+
+}
+
 @media (min-width: 768px) {
     .navbar-text {
         display: none;

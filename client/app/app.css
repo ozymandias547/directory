@@ -33,6 +33,12 @@ body {
     background: url(/assets/images/paper.jpg);
 }
 
+label {
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+}
+
 .navbar {
     background: url(/assets/images/wood.jpg);
 }

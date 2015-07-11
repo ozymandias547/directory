@@ -5,6 +5,8 @@ angular.module('directoryApp')
         $scope.users = Users.data;
         $scope.section = "Directory";
 
+        $scope.dynamicTooltip = 'Hello, World!';
+
         $scope.viewMode = MainService.getState("viewMode");
         $scope.selectedProfiles = MainService.getState("selectedProfiles");
         $scope.selectedProfiles.forEach(function(selectedProfile) {
