@@ -89,12 +89,8 @@
     font-size: 18px;
     font-weight: bold;
     color: rgba(0, 0, 0, 0.6);
-    font-size: 20px;    
+    font-size: 20px;
     text-shadow: rgba(255, 255, 255, 0.2) 3px 2px 3px;
-}
-
-.btn-group {
-    /*margin-bottom: 30px;*/
 }
 
 .select-profile-button {
@@ -103,11 +99,21 @@
     right: 5px;
     z-index: 10000;
     font-size: 18px;
-    color: #ccc;
+    color: #aaa;
 }
 
 table .select-profile-button {
     position: static;
+}
+
+table {
+    table-layout: fixed;
+}
+
+.table-hover > tbody > tr, .table-hover > tbody > tr > th, .table-hover > tbody > tr > td {
+    background: #f9f9f9;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .selected-users {
@@ -130,6 +136,10 @@ table .select-profile-button {
 
 .select-profile-button.selected {
     color: green;
+}
+
+.table-hover > tbody > tr, .table-hover > tbody > tr > th, .table-hover > tbody > tr > td {
+    background: #f9f9f9;
 }
 
 @media (min-width: 768px) {

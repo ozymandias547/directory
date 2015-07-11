@@ -1,11 +1,20 @@
 'use strict';
 
 angular.module('directoryApp')
-    .controller('MainCtrl', function($scope, Auth, $location, Users) {
+    .controller('MainCtrl', function($scope, Auth, $location, Users, MainService) {
         $scope.users = Users.data;
-        $scope.mode = "tile";
         $scope.section = "Directory";
-        $scope.selectedProfiles = [];
+
+        $scope.viewMode = MainService.getState("viewMode");
+        $scope.selectedProfiles = MainService.getState("selectedProfiles");
+        $scope.selectedProfiles.forEach(function(selectedProfile) {
+            $scope.users.forEach(function(user) {
+                if (selectedProfile._id === user._id) {
+                    user.isSelected = true;
+                }
+            })
+        })
+
 
         $scope.defaultPic = function() {
 
@@ -21,8 +30,9 @@ angular.module('directoryApp')
 
         }
 
-        $scope.setDisplayMode = function(mode) {
-            $scope.mode = mode;
+        $scope.setDisplayMode = function(viewMode) {
+            $scope.viewMode = viewMode;
+            MainService.setState("viewMode", viewMode);
         }
 
         $scope.groupBy = "lastnameAsc";
@@ -60,7 +70,7 @@ angular.module('directoryApp')
                 return profile._id === _id;
             })[0];
 
-            if ($scope.selectedProfiles.indexOf(profile) === -1) {
+            if (!profile.isSelected) {
                 $scope.selectedProfiles.push(profile);
                 profile.isSelected = true;
             } else {
@@ -69,6 +79,8 @@ angular.module('directoryApp')
                     return profile._id !== _id;
                 })
             }
+
+            MainService.setState("selectedProfiles", $scope.selectedProfiles);
 
         };
 

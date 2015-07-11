@@ -49,8 +49,8 @@ angular.module('directoryApp')
             "http://www.vincegolangco.com/wp-content/uploads/2010/12/mickey-mouse-for-facebook.jpg",
             "http://media-cache-ec0.pinimg.com/236x/1c/76/36/1c7636906717be2719923f3e83c4502c.jpg"
         ]
-
-        return pics[Math.floor(Math.random() * 5)];
+        
+        return "http://media-cache-ec0.pinimg.com/236x/1c/76/36/1c7636906717be2719923f3e83c4502c.jpg";
 
     }
 
