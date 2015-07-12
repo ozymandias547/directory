@@ -10,6 +10,12 @@ angular.module('directoryApp')
         $scope.email = ProfileData.email;
         $scope.phone = ProfileData.phone;
         $scope.picture = ProfileData.picture;
+        $scope.hometown = ProfileData.hometown;
+        $scope.blurb = ProfileData.blurb;
+        $scope.nationality = ProfileData.nationality;
+        $scope.facebook = ProfileData.facebook;
+        $scope.twitter = ProfileData.twitter;
+        $scope.linkedin = ProfileData.linkedin;
 
         $scope.isCurrentUser = ProfileData._id === Auth.getCurrentUser()._id;
         $scope.myImage = '';
@@ -24,7 +30,7 @@ angular.module('directoryApp')
                 size: "md",
                 resolve: {
                     ProfileData: function() {
-                        return ProfileData;
+                        return $scope;
                     }
                 }
             });
@@ -35,6 +41,12 @@ angular.module('directoryApp')
                 $scope.email = modifiedUserData.email;
                 $scope.phone = modifiedUserData.phone;
                 $scope.picture = modifiedUserData.picture;
+                $scope.hometown = modifiedUserData.hometown;
+                $scope.blurb = modifiedUserData.blurb;
+                $scope.nationality = modifiedUserData.nationality;
+                $scope.facebook = modifiedUserData.facebook;
+                $scope.twitter = modifiedUserData.twitter;
+                $scope.linkedin = modifiedUserData.linkedin;
             }, function() {
             });
 
@@ -65,6 +77,12 @@ angular.module('directoryApp')
         $scope.email = ProfileData.email;
         $scope.phone = ProfileData.phone;
         $scope.picture = ProfileData.picture;
+        $scope.hometown = ProfileData.hometown;
+        $scope.blurb = ProfileData.blurb;
+        $scope.nationality = ProfileData.nationality;
+        $scope.facebook = ProfileData.facebook;
+        $scope.twitter = ProfileData.twitter;
+        $scope.linkedin = ProfileData.linkedin;
 
         $scope.ok = function() {
 
@@ -76,7 +94,13 @@ angular.module('directoryApp')
                     lastname: $scope.lastname,
                     email: $scope.email,
                     phone: $scope.phone,
-                    picture : $scope.picture
+                    picture : $scope.picture,
+                    hometown: $scope.hometown,
+                    blurb: $scope.blurb,
+                    nationality: $scope.nationality,
+                    facebook: $scope.facebook,
+                    twitter: $scope.twitter,
+                    linkedin: $scope.linkedin
                 })
                 .then(function() {
                     $scope.isProcessing = false;
@@ -85,7 +109,13 @@ angular.module('directoryApp')
                         lastname : $scope.lastname,
                         email : $scope.email,
                         phone : $scope.phone,
-                        picture : $scope.picture
+                        picture : $scope.picture,
+                        hometown: $scope.hometown,
+                        blurb: $scope.blurb,
+                        nationality: $scope.nationality,
+                        facebook: $scope.facebook,
+                        twitter: $scope.twitter,
+                        linkedin: $scope.linkedin
                     });
                 })
                 .catch(function() {

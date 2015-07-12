@@ -39,6 +39,11 @@ label {
     font-weight: bold;
 }
 
+.not-required {
+    color: gray;
+    font-size: 10px;
+}
+
 .navbar {
     background: url(/assets/images/wood.jpg);
 }
@@ -109,6 +114,11 @@ label {
 
 h1 {
     color: rgb(35, 92, 70);
+}
+
+.form-group textarea {
+    width: 100%;
+    min-height: 100px;
 }
 
 textarea,

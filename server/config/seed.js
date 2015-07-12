@@ -37,7 +37,24 @@ User.find({}).remove(function() {
     firstname: 'Joseph',
     lastname: 'Jung',
     email: 'a@a.com',
-    password: 'a'
+    password: 'a',
+    hometown: "Hutchinson Kansas USA"
+  },
+  {
+    provider: 'local',
+    role: 'admin',
+    firstname: 'Bob',
+    lastname: 'Jung',
+    email: 'b@b.com',
+    password: 'b'
+  },
+  {
+    provider: 'local',
+    role: 'admin',
+    firstname: 'Cool',
+    lastname: 'Runnings',
+    email: 'c@c.com',
+    password: 'c'
   }, function() {
       console.log('finished populating users');
     }
