@@ -9,11 +9,6 @@ angular.module('directoryApp')
     $scope.getCurrentUser = Auth.getCurrentUser;
     $scope.currentUserId = Auth.getCurrentUser()._id;
 
-    $scope.logout = function() {
-      Auth.logout();
-      $location.path('/');
-    };
-
     $scope.isActive = function(route) {
       return route === $location.path();
     };

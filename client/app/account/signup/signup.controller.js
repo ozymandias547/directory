@@ -4,9 +4,15 @@ angular.module('directoryApp')
   .controller('SignupCtrl', function ($scope, Auth, $location) {
     $scope.user = {};
     $scope.errors = {};
+     $scope.passwordsDontMatch = false;
 
     $scope.register = function(form) {
       $scope.submitted = true;
+
+      if ($scope.user.password !== $scope.user.password2) {
+        $scope.passwordsDontMatch = true;
+        return;
+      }
 
       if(form.$valid) {
         Auth.createUser({

@@ -8,21 +8,48 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-8">
-                        <h5><strong>Name:</strong> {{firstname}} {{lastname}}</h5>
-                        <h5><strong>Email:</strong> {{email}}</h5>
-                        <h5 ng-show="phone"><strong>Phone #:</strong> {{phone | tel}}</h5>
-                        <h5 ng-show="nationality"><strong>Nationality:</strong> {{nationality}}</h5>
-                        <h5 ng-show="blurb"><strong>About me:</strong></h5>
-                        <a ng-show="facebook" ng-href="{{facebook}}" target="_blank">Facebook<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
-                        <a ng-show="twitter" ng-href="{{twitter}}" target="_blank">Twitter<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
-                        <a ng-show="linkedin" ng-href="{{linkedin}}" target="_blank">LinkedIn<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
-                        <div>{{blurb}}</div>
-                        <h5 ng-show="hometown"><strong>Hometown: </strong><a href="https://maps.google.com?q={{hometown}}" target="_blank">{{hometown}}<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></h5>
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td>Name</td>
+                                    <td><strong>{{firstname}} {{lastname}}</strong></td>
+                                </tr>
+                                <tr>
+                                    <td>Email</td>
+                                    <td><strong>{{email}}</strong></td>
+                                </tr>
+                                <tr ng-show="phone">
+                                    <td>Phone #</td>
+                                    <td><strong>{{phone | tel}}</strong></td>
+                                </tr>
+                                <tr ng-show="nationality">
+                                    <td>Nationality</td>
+                                    <td><strong>{{nationality}}</strong></td>
+                                </tr>
+                                <tr ng-show="facebook || twitter || linkedin">
+                                    <td>Social Media:</td>
+                                    <td>
+                                        <a ng-show="facebook" ng-href="{{facebook}}" target="_blank">Facebook<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                                        <a ng-show="twitter" ng-href="{{twitter}}" target="_blank">Twitter<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                                        <a ng-show="linkedin" ng-href="{{linkedin}}" target="_blank">LinkedIn<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                                    </td>
+                                </tr>
+                                <tr ng-show="blurb">
+                                    <td>About Me</td>
+                                    <td><strong>{{blurb}}</strong></td>
+                                </tr>
+                                <tr ng-show="hometown">
+                                    <td>Hometown</td>
+                                    <td><a href="https://maps.google.com?q={{hometown}}" target="_blank">{{hometown}}<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                       
                         <a href="https://maps.google.com?q={{hometown}}" target="_blank">
-                        <img ng-show="hometown" src="https://maps.googleapis.com/maps/api/staticmap?center={{hometown}}}&zoom=6&size=600x300&maptype=roadmap&markers=color:blue%7C{{hometown}}}" /></a>
+                            <img ng-show="hometown" class="hometown" src="https://maps.googleapis.com/maps/api/staticmap?center={{hometown}}}&zoom=6&size=600x300&maptype=roadmap&markers=color:blue%7C{{hometown}}}" /></a>
                         <button class="btn btn-lg btn-primary" ng-show="isCurrentUser" ng-click="change()">Edit info</button>
                     </div>
-                     <div class="col-xs-4">
+                    <div class="col-xs-4">
                         <img class="panel panel-default picture" ng-src="{{picture || randomDefaultPic()}}" />
                     </div>
                 </div>
@@ -30,14 +57,13 @@
         </div>
     </div>
 </div>
-
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">
         <h3 class="modal-title">Edit Profile:</h3>
     </div>
     <div class="modal-body">
         <p>
-           Purpose of information:  This information is only for helping everyone get to know each other so that we can pray and fellowship in a deeper way.  We will never share this information publically or give it away.  Almost all of this information is not required.  Please only share what you feel comfortable with, and not more. God bless!
+            Purpose of information: This information is only for helping everyone get to know each other so that we can pray and fellowship in a deeper way. We will never share this information publically or give it away. Almost all of this information is not required. Please only share what you feel comfortable with, and not more. God bless!
         </p>
         <div class="form-group">
             <label for="firstname">First Name:</label>
@@ -53,35 +79,39 @@
         </div>
         <div class="form-group">
             <label for="name">Phone: <span class="not-required">(Not required)</span></label>
-            <input class="form-control" ng-model="phone" type="text" id="phone" phone-input placeholder="Example: (123) 123-1234"/>
+            <input class="form-control" ng-model="phone" type="text" id="phone" phone-input placeholder="Example: (123) 123-1234" />
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <label for="picture">Picture URL: <span class="not-required">(Not required)</span></label>
             <input class="form-control" ng-model="picture" type="text" id="picture" placeholder="Example: https://facebook.com/pictureIfMe.jpg" />
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <label for="hometown">Hometown: <span class="not-required">(Not required)</span></label>
             <input class="form-control" ng-model="hometown" type="text" id="hometown" placeholder="Example: Nanchang Jiangxi" />
         </div>
-         <div class="form-group">
+        <div class="form-group">
             <label for="nationality">Nationality <span class="not-required">(Not required)</span></label>
             <input class="form-control" ng-model="nationality" type="text" id="nationality" placeholder="Example: Chinese, American, Indian..." />
         </div>
-       <div class="form-group">
+        <div class="form-group">
             <label for="facebook">Facebook: <span class="not-required">(Not required)</span></label>
             <input class="form-control" ng-model="facebook" type="text" id="facebook" placeholder="Example: https://www.facebook.com/joseph.jung.14" />
         </div>
         <div class="form-group">
             <label for="twitter">Twitter: <span class="not-required">(Not required)</span></label>
-            <input class="form-control" ng-model="twitter" type="text" id="twitter"  />
+            <input class="form-control" ng-model="twitter" type="text" id="twitter" />
         </div>
         <div class="form-group">
             <label for="linkedin">LinkedIn: <span class="not-required">(Not required)</span></label>
-            <input class="form-control" ng-model="linkedin" type="text" id="linkedin" placeholder="Example: https://www.linkedin.com/pub/joseph-jung/17/b67/1b2"/>
+            <input class="form-control" ng-model="linkedin" type="text" id="linkedin" placeholder="Example: https://www.linkedin.com/pub/joseph-jung/17/b67/1b2" />
         </div>
-         <div class="form-group">
-            <div><label for="blurb">Anything about me: <span class="not-required">(Not required)</span></label></div>
-            <div><textarea ng-model="blurb" type="text" id="blurb" ></textarea></div>
+        <div class="form-group">
+            <div>
+                <label for="blurb">Anything about me: <span class="not-required">(Not required)</span></label>
+            </div>
+            <div>
+                <textarea ng-model="blurb" type="text" id="blurb"></textarea>
+            </div>
         </div>
     </div>
     <div class="modal-footer">

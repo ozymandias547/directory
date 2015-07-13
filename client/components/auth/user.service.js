@@ -11,6 +11,12 @@ angular.module('directoryApp')
                     controller: 'password'
                 }
             },
+            forgotPassword: {
+                method: 'GET',
+                params: {
+                    email: 'email'
+                }
+            },
             getMe: {
                 method: 'GET',
                 params: {

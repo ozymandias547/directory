@@ -1,9 +1,10 @@
 'use strict';
 
 angular.module('directoryApp')
-    .controller('SettingsCtrl', function($scope, User, Auth) {
+    .controller('SettingsCtrl', function($scope, User, Auth, $location) {
         $scope.errors = {};
         $scope.section = "Settings";
+        $scope.isLoggedIn = Auth.isLoggedIn;
         $scope.changePassword = function(form) {
             $scope.submitted = true;
             if (form.$valid) {
@@ -17,5 +18,9 @@ angular.module('directoryApp')
                         $scope.message = '';
                     });
             }
+        };
+         $scope.logout = function() {
+          Auth.logout();
+          $location.path('/');
         };
     });

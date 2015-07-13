@@ -91,7 +91,16 @@ angular.module('directoryApp')
           return cb(err);
         }).$promise;
       },
+      forgotPassword: function(email, callback) {
+         var cb = callback || angular.noop;
 
+        return User.forgotPassword({ email: email 
+        }, function() {
+          return cb();
+        }, function(err) {
+          return cb(err);
+        }).$promise;
+      },
       updateProfile: function(userData, callback) {
          var cb = callback || angular.noop;
          return User.update({ id: userData._id }, { userData: userData }, function(user) {
