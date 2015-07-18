@@ -16,6 +16,7 @@ var UserSchema = new Schema({
   linkedin: { type: String },
   twitter: { type: String },
   phone: { type: Number },
+  tags : [{ type: Schema.Types.ObjectId, ref: 'Tag' }],
   role: {
     type: String,
     default: 'user'
@@ -56,7 +57,8 @@ UserSchema
       'linkedin': this.linkedin,
       'phone': this.phone,
       'role': this.role,
-      '_id': this._id
+      '_id': this._id,
+      'tags': this.tags
     };
   });
 

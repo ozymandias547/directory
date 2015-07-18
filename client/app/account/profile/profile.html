@@ -26,6 +26,10 @@
                                     <td>Nationality</td>
                                     <td><strong>{{nationality}}</strong></td>
                                 </tr>
+                                 <tr ng-show="tags">
+                                    <td>Mailing Lists</td>
+                                    <td><span class="tag" ng-repeat="tag in tags">{{tag.name}}</span></td>
+                                </tr>
                                 <tr ng-show="facebook || twitter || linkedin">
                                     <td>Social Media:</td>
                                     <td>
@@ -63,7 +67,7 @@
     </div>
     <div class="modal-body">
         <p>
-            Purpose of information: This information is only for helping everyone get to know each other so that we can pray and fellowship in a deeper way. We will never share this information publically or give it away. Almost all of this information is not required. Please only share what you feel comfortable with, and not more. God bless!
+            Purpose of information: This information is only for helping everyone get to know each other so that we can pray and fellowship for and with eachother in a deeper way. We will never share this information publically or give it away. Almost all of this information is not required. Please only share what you feel comfortable with, and not more. God bless!
         </p>
         <div class="form-group">
             <label for="firstname">First Name:</label>
@@ -105,6 +109,17 @@
             <label for="linkedin">LinkedIn: <span class="not-required">(Not required)</span></label>
             <input class="form-control" ng-model="linkedin" type="text" id="linkedin" placeholder="Example: https://www.linkedin.com/pub/joseph-jung/17/b67/1b2" />
         </div>
+        <div class="form-group">
+            <div>
+                <label>I'd like to be on the following mailing lists: <span class="not-required">(Not required)</span></label>
+            </div>
+            <div class="checkbox" ng-repeat="tag in tags"> 
+              <label>
+                <input type="checkbox" ng-model="selectedTags[tag._id]">{{tag.name}}
+              </label>
+            </div>
+           
+            </div>
         <div class="form-group">
             <div>
                 <label for="blurb">Anything about me: <span class="not-required">(Not required)</span></label>

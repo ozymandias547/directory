@@ -25,6 +25,10 @@ angular.module('directoryApp')
             },
             'update': {
                 method: 'PUT',
+            },
+            'updateAsAdmin' : {
+                method: 'PUT',
+                controller: 'admin'
             }
         });
     });

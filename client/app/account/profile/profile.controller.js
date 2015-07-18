@@ -1,7 +1,9 @@
 'use strict';
 
 angular.module('directoryApp')
-    .controller('ProfileCtrl', function($scope, Upload, ProfileData, Auth, $modal) {
+    .controller('ProfileCtrl', function($scope, Upload, ProfileData, TagData, Auth, $modal) {
+
+        var TagData = TagData.data;
 
         $scope.section = ProfileData.firstname + "'s Profile";
 
@@ -16,6 +18,7 @@ angular.module('directoryApp')
         $scope.facebook = ProfileData.facebook;
         $scope.twitter = ProfileData.twitter;
         $scope.linkedin = ProfileData.linkedin;
+        $scope.tags = ProfileData.tags;
 
         $scope.isCurrentUser = ProfileData._id === Auth.getCurrentUser()._id;
         $scope.myImage = '';
@@ -31,6 +34,9 @@ angular.module('directoryApp')
                 resolve: {
                     ProfileData: function() {
                         return $scope;
+                    },
+                    TagData: function() {
+                        return TagData;
                     }
                 }
             });
@@ -47,6 +53,21 @@ angular.module('directoryApp')
                 $scope.facebook = modifiedUserData.facebook;
                 $scope.twitter = modifiedUserData.twitter;
                 $scope.linkedin = modifiedUserData.linkedin;
+
+                $scope.tags = $scope.tags.filter(function(tag) {
+                    return !tag.isPublic;
+                })
+
+                modifiedUserData.tags.forEach(function(tag) {
+                    
+                    var currentTag = _.findWhere($scope.tags, { _id : tag });
+
+                    if (!_.isObject(currentTag)) {
+                        $scope.tags.push(_.findWhere(TagData, { _id : tag}));
+                    }
+                
+                })
+
             }, function() {
             });
 
@@ -70,7 +91,7 @@ angular.module('directoryApp')
     });
 
 angular.module('directoryApp')
-    .controller('EditProfileModalCtrl', function($scope, $modalInstance, ProfileData, User, Auth) {
+    .controller('EditProfileModalCtrl', function($scope, $modalInstance, ProfileData, TagData, User, Auth) {
 
         $scope.firstname = ProfileData.firstname;
         $scope.lastname = ProfileData.lastname;
@@ -84,9 +105,32 @@ angular.module('directoryApp')
         $scope.twitter = ProfileData.twitter;
         $scope.linkedin = ProfileData.linkedin;
 
+        $scope.tags = TagData.filter(function(tag) {
+            return tag.isPublic;
+        });
+
+
+
+        $scope.selectedTags = {};
+
+        ProfileData.tags.forEach(function(tag) {
+            if (tag.isPublic) {
+                $scope.selectedTags[tag._id] = true;
+            }
+        });
+
         $scope.ok = function() {
 
             $scope.isProcessing = true;
+
+            var tagsToSave = [];
+
+            for (var i in $scope.selectedTags) {
+                if ($scope.selectedTags.hasOwnProperty(i)) {
+                    if ( $scope.selectedTags[i])
+                        tagsToSave.push(i);
+                }
+            }
 
             Auth.updateProfile({
                     _id: Auth.getCurrentUser()._id,
@@ -100,7 +144,8 @@ angular.module('directoryApp')
                     nationality: $scope.nationality,
                     facebook: $scope.facebook,
                     twitter: $scope.twitter,
-                    linkedin: $scope.linkedin
+                    linkedin: $scope.linkedin,
+                    tags: tagsToSave
                 })
                 .then(function() {
                     $scope.isProcessing = false;
@@ -115,7 +160,8 @@ angular.module('directoryApp')
                         nationality: $scope.nationality,
                         facebook: $scope.facebook,
                         twitter: $scope.twitter,
-                        linkedin: $scope.linkedin
+                        linkedin: $scope.linkedin,
+                        tags: tagsToSave
                     });
                 })
                 .catch(function() {

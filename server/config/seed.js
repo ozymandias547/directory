@@ -5,28 +5,31 @@
 
 'use strict';
 
-var Thing = require('../api/thing/thing.model');
+var Tag = require('../api/tag/tag.model');
 var User = require('../api/user/user.model');
 
-Thing.find({}).remove(function() {
-  Thing.create({
-    name : 'Development Tools',
-    info : 'Integration with popular tools such as Bower, Grunt, Karma, Mocha, JSHint, Node Inspector, Livereload, Protractor, Jade, Stylus, Sass, CoffeeScript, and Less.'
+Tag.find({}).remove(function() {
+  Tag.create({
+    name : 'Prayer',
+    isPublic : true
   }, {
-    name : 'Server and Client integration',
-    info : 'Built with a powerful and fun stack: MongoDB, Express, AngularJS, and Node.'
+    name : 'Ping-pong',
+    isPublic : true
   }, {
-    name : 'Smart Build System',
-    info : 'Build system ignores `spec` files, allowing you to keep tests alongside code. Automatic injection of scripts and styles into your index.html'
+    name : 'Board Member',
+    isPublic : false
   },  {
-    name : 'Modular Structure',
-    info : 'Best practice client and server structures allow for more code reusability and maximum scalability'
+    name : 'Member',
+    isPublic : false
   },  {
-    name : 'Optimized Build',
-    info : 'Build process packs up your templates as a single JavaScript payload, minifies your scripts/css/images, and rewrites asset names for caching.'
+    name : 'Associate Member',
+    isPublic : false
   },{
-    name : 'Deployment Ready',
-    info : 'Easily deploy your app to Heroku or Openshift with the heroku and openshift subgenerators'
+    name : 'Worship Team',
+    isPublic : false
+  }, {
+    name : 'Prayer Team',
+    isPublic : false
   });
 });
 
@@ -34,27 +37,39 @@ User.find({}).remove(function() {
   User.create({
     provider: 'local',
     role: 'admin',
-    firstname: 'Joseph',
-    lastname: 'Jung',
+    firstname: 'Martin',
+    lastname: 'Stidham',
     email: 'a@a.com',
     password: 'a',
-    hometown: "Hutchinson Kansas USA"
+    hometown: "Lyons IL",
+    position: "board"
   },
   {
     provider: 'local',
-    role: 'admin',
-    firstname: 'Bob',
+    role: 'user',
+    firstname: 'Yen',
     lastname: 'Jung',
     email: 'b@b.com',
-    password: 'b'
+    password: 'b',
+    position: 'member'
+  },
+  {
+    provider: 'local',
+    role: 'user',
+    firstname: 'Dale',
+    lastname: 'Voelker',
+    email: 'c@c.com',
+    password: 'c',
+    position: 'associate'
   },
   {
     provider: 'local',
     role: 'admin',
-    firstname: 'Cool',
-    lastname: 'Runnings',
-    email: 'c@c.com',
-    password: 'c'
+    firstname: 'Joseph',
+    lastname: 'Jung',
+    email: 'd@d.com',
+    password: 'd',
+    position: 'friend'
   }, function() {
       console.log('finished populating users');
     }

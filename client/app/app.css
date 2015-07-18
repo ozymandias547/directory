@@ -122,8 +122,8 @@ h1 {
 }
 
 textarea,
-input,
-textarea.form-control,
+/*input,
+*/textarea.form-control,
 input.form-control,
 input[type=text],
 input[type=password],
@@ -166,4 +166,12 @@ select.form-control {
     padding: 0;
     margin-bottom: 10px;
     margin-top: 16px;
+}
+
+.tag {
+    background: red;
+    margin: 2px;
+    padding: 4px;
+    color: white;
+    border-radius: 2px;
 }

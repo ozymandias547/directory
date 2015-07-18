@@ -6,7 +6,7 @@
                 <label>Filter by keyword:</label>
             </div>
             <div class="form-group">
-                <input type="text" class="form-control"  placeholder="keyword..." ng-model="search" />
+                <input type="text" class="form-control" placeholder="keyword..." ng-model="search" />
             </div>
         </div>
         <div class="col-sm-3">
@@ -32,22 +32,41 @@
                 <a href="#" tooltip="Large tiles" class="btn btn-default" ng-class="{active: viewMode ==='lg-tile'}" ng-click="setDisplayMode('lg-tile')"><span class="glyphicon glyphicon-th-large"></span></a>
             </div>
         </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div>
+                <label>Filter by tag:</label>
+            </div>
+            <div class="btn-group">
+                <a href="#" tooltip="List" class="btn btn-default" ng-repeat="tag in currentTags" ng-click="filterByTag(tag)" ng-class="{ active: isTagSelected(tag)}">{{tag.name}}</a>
+            </div>
+        </div>
+    </div>
+     <hr>
+    <div class="row">
         <div class="col-xs-12 selected-users">
             <div>
                 <label>Selected users: <a class="whatisthis" tooltip="Build custom user email or phone groups by selecting the check mark on their profile cards and using the option buttons below.">what is this</a></label>
             </div>
             <div class="btn-group">
-                <a tooltip="Email selected users"  href="mailto:{{ buildMailToList() }}" class="btn btn-default"><span class="glyphicon glyphicon-envelope"></a>
+                <a tooltip="Select all" ng-click="selectAllVisibleProfiles()" class="btn btn-default"><span class="glyphicon glyphicon-ok"></a>
+                <a tooltip="Remove All" ng-click="removeAllSelected()" class="btn btn-default" ng-show="selectedProfiles.length > 0"><span class="glyphicon glyphicon-remove"></a>
+            </div>
+            
+            <div class="btn-group" ng-show="selectedProfiles.length > 0">
+                <a tooltip="Email selected users" href="mailto:{{ buildMailToList() }}" class="btn btn-default"><span class="glyphicon glyphicon-envelope"></a>
                 <a tooltip="Copy email addresses of selected users" ng-click="copyToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></a>
                 <a tooltip="Copy phone numbers of selected users" ng-click="copyPhoneToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-phone"></a>
             </div>
-            <div class=" panel panel-default clearfix user-name-container" ng-repeat="selectedUser in selectedProfiles">
+            <div class=" panel panel-default clearfix user-name-container" ng-repeat="selectedUser in selectedProfiles" ng-show="selectedProfiles.length > 0">
                 <span>{{selectedUser.firstname}} {{selectedUser.lastname}} <span ng-click="selectProfile($event, selectedUser._id);" class="glyphicon glyphicon-remove"></span>
             </div>
         </div>
     </div>
+    <hr>
     <div class="row">
-        <div class="col-xs-4" ng-show="viewMode ==='tile'" ng-repeat="user in users | filter:search">
+        <div class="col-xs-4" ng-show="viewMode ==='tile'" ng-repeat="user in users | filter:search | filterProfilesByTag:selectedTags">
             <div class="profile-item panel panel-default">
                 <a ng-href="/profile/{{user._id}}">
                     <span ng-click="selectProfile($event, user._id);" ng-class="{ selected: user.isSelected}" class="glyphicon glyphicon-ok-sign select-profile-button"></span>
@@ -63,7 +82,7 @@
                 </a>
             </div>
         </div>
-        <div class="col-xs-6  large-thumbs" ng-show="viewMode ==='lg-tile'" ng-repeat="user in users | filter:search">
+        <div class="col-xs-6  large-thumbs" ng-show="viewMode ==='lg-tile'" ng-repeat="user in users | filter:search | filterProfilesByTag:selectedTags">
             <div class="profile-item panel panel-default">
                 <a ng-href="/profile/{{user._id}}">
                     <span ng-click="selectProfile($event, user._id);" ng-class="{ selected: user.isSelected}" class="glyphicon glyphicon-ok-sign select-profile-button"></span>
@@ -91,7 +110,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr ng-repeat="user in users | filter:search">
+                    <tr ng-repeat="user in users | filter:search | filterProfilesByTag:selectedTags">
                         <td><span ng-click="selectProfile($event, user._id);" ng-class="{ selected: user.isSelected}" class="glyphicon glyphicon-ok-sign select-profile-button"></span></td>
                         <td><a ng-href="/profile/{{user._id}}">{{user.firstname}}</a></td>
                         <td>{{user.lastname}}</td>
