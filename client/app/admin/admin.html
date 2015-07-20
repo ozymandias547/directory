@@ -1,13 +1,10 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
-    
-    
-
     <button ng-show="isDirty" ng-click="save()" class="btn btn-lg btn-primary">
         <span ng-show="!isSaving">Save</span>
         <span ng-show="isSaving">Saving...</span>
     </button>
-    <table class="table table-hover">
+    <table class="table">
         <thead>
             <th>Name</th>
             <th>Tags</th>
@@ -18,7 +15,17 @@
             <tr ng-repeat="user in users">
                 <td>{{user.firstname}} {{user.lastname}}</td>
                 <td>
-                    <span class="tag" ng-repeat="tag in user.tags">{{tag.name}}</span>
+                    <span class="dropdown" dropdown on-toggle="toggled(open)">
+      <a href class="dropdown-toggle" dropdown-toggle>
+        Add
+      </a>
+      <ul class="dropdown-menu">
+        <li ng-repeat="tag in tags">
+          <a ng-click="addTag(user, tag)">{{tag.name}}</a>
+        </li>
+      </ul>
+    </span>
+                    <span class="tag" ng-repeat="tag in user.tags">{{tag.name}} <a ng-click="removeTag(user, tag)">rem</a></span>
                 </td>
                 <td>
                     <div class="checkbox">

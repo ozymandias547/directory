@@ -104,12 +104,11 @@ angular.module('directoryApp')
         $scope.facebook = ProfileData.facebook;
         $scope.twitter = ProfileData.twitter;
         $scope.linkedin = ProfileData.linkedin;
+        $scope.userTags = ProfileData.tags;
 
         $scope.tags = TagData.filter(function(tag) {
             return tag.isPublic;
         });
-
-
 
         $scope.selectedTags = {};
 
@@ -123,7 +122,11 @@ angular.module('directoryApp')
 
             $scope.isProcessing = true;
 
-            var tagsToSave = [];
+            var tagsToSave = $scope.userTags.filter(function(tag) {
+                return !tag.isPublic;
+            }).map(function(tag) {
+                return tag._id;
+            });
 
             for (var i in $scope.selectedTags) {
                 if ($scope.selectedTags.hasOwnProperty(i)) {
@@ -131,6 +134,10 @@ angular.module('directoryApp')
                         tagsToSave.push(i);
                 }
             }
+
+            ProfileData.tags.filter(function(tag) {
+                return !tag.isPublic;
+            });
 
             Auth.updateProfile({
                     _id: Auth.getCurrentUser()._id,

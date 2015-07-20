@@ -1,11 +1,12 @@
 'use strict';
 
 angular.module('directoryApp')
-    .controller('AdminCtrl', function($scope, $http, Auth, User, $q) {
+    .controller('AdminCtrl', function($scope, $http, Auth, User, $q, TagData) {
         $scope.section = "Admin";
         // Use the User $resource to fetch all users
         $scope.users = User.query();
-
+        $scope.tags = TagData.data;
+        
         $scope.users.$promise.then(function(result) {
             $scope.users = result;
 
@@ -26,11 +27,17 @@ angular.module('directoryApp')
             angular.forEach($scope.users, function(user, idx) {
                 if (user.isDirty) {
 
-                    user.role = user.isAdmin ? "admin" : "user";
+                    var userToSave = _.clone(user);
+
+                    userToSave.role = userToSave.isAdmin ? "admin" : "user";
+
+                    userToSave.tags = userToSave.tags.map(function(tag) {
+                        return tag._id;
+                    });
 
                     promises.push(User.updateAsAdmin({
-                        _id: user._id
-                    }, user).$promise);
+                        _id: userToSave._id
+                    }, userToSave).$promise);
 
                 }
             });
@@ -62,7 +69,19 @@ angular.module('directoryApp')
                     }
                 });
             }
-
-
         };
+
+        $scope.addTag = function(user, tag) {
+            user.tags.push(tag);
+            $scope.isDirty = true;
+            user.isDirty = true;
+        }
+
+        $scope.removeTag = function(user, tag) {
+            
+            user.tags = _.without(user.tags, _.findWhere( user.tags, { _id : tag._id }) );
+            $scope.isDirty = true;
+            user.isDirty = true;
+        }
+
     });

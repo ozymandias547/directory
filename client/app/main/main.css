@@ -106,9 +106,18 @@ table .select-profile-button {
     position: static;
 }
 
+table.no-overflow {
+    overflow: none;
+}
+
 .directory-table {
     table-layout: fixed;
 }
+
+tbody > tr, tbody > tr > th, tbody > tr > td {
+    background: #f9f9f9;
+}
+
 
 .table-hover > tbody > tr, .table-hover > tbody > tr > th, .table-hover > tbody > tr > td {
     background: #f9f9f9;
