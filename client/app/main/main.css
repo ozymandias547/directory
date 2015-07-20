@@ -158,6 +158,16 @@ tbody > tr, tbody > tr > th, tbody > tr > td {
 
 }
 
+.tag-btn-group .btn {
+    padding: 2px 4px 2px 4px;
+}
+
+.adv-btn-group .btn.active {
+    background: #FFAA26;
+}
+
+.btn-group
+
 @media (min-width: 768px) {
     .navbar-text {
         display: none;

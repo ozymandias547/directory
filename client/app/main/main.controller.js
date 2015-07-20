@@ -132,7 +132,9 @@ angular.module('directoryApp')
         }
 
         $scope.filterByTag = function(tag) {
+            
             if ($scope.selectedTags.indexOf(tag) === -1) {
+                $scope.selectedTags = [];
                 $scope.selectedTags.push(tag);
             } else {
                 $scope.selectedTags = _.without($scope.selectedTags, _.findWhere($scope.selectedTags, { _id: tag._id }));
