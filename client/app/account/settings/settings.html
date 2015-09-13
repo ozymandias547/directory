@@ -1,19 +1,23 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
-
+<header class="hero-unit minimal" id="banner">
+  <div class="top-gradient"></div>
+  <div class="left-gradient"></div>
+  <div class="verse">But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.</div>
+</header>
 <div class="container">
   <div class="row">
-  <div class="col-sm-offset-3 col-sm-6 panel">
+  <div class="col-sm-offset-3 col-sm-6">
     <h3>Account:</h3>
     <a href="" ng-click="logout()">Logout</a>
     </div>
   </div>
   <div class="row ">
 
-    
-    <div class="col-sm-offset-3 col-sm-6 panel">
+
+    <div class="col-sm-offset-3 col-sm-6">
       <h3>Change Password</h3>
       <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
-        
+
         <div class="form-group">
           <label>Current Password</label>
 

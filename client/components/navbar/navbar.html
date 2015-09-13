@@ -1,7 +1,6 @@
 <div class="navbar navbar-default navbar-static-top" ng-show="isLoggedIn()" ng-controller="NavbarCtrl">
   <div class="container">
     <div class="navbar-header">
-      <span class="section-name" >{{section}}</span>
       <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
         <span class="sr-only">Toggle navigation</span>
         <span class="icon-bar"></span>
@@ -14,6 +13,7 @@
         <li ng-show="isLoggedIn()"><p class="navbar-text">Hello {{ getCurrentUser().firstname }} {{ getCurrentUser().lastname }}</p> </li>
       </ul> -->
       <ul class="nav nav-pills navbar-nav navbar-right">
+        <li ng-hide="isLoggedIn()"> <a href="#login">Login</a></li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/directory')}"><a href="/directory">Directory</a></li>
         <li ng-show="isLoggedIn()" ng-class="{active: isActive('/profile/' + currentUserId)}"><a href="/profile/{{currentUserId}}">My Profile</a></li>
         <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>

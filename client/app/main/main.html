@@ -1,4 +1,8 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit minimal" id="banner">
+  <div class="top-gradient"></div>
+  <div class="verse">But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.</div>
+</header>
 <div class="container directory">
     <div class="row">
         <div class="col-sm-6">
@@ -53,7 +57,7 @@
                 <a tooltip="Select all" ng-click="selectAllVisibleProfiles()" class="btn btn-default"><span class="glyphicon glyphicon-ok"></a>
                 <a tooltip="Remove All" ng-click="removeAllSelected()" class="btn btn-default" ng-show="selectedProfiles.length > 0"><span class="glyphicon glyphicon-remove"></a>
             </div>
-            
+
             <div class="btn-group" ng-show="selectedProfiles.length > 0">
                 <a tooltip="Email selected users" href="mailto:{{ buildMailToList() }}" class="btn btn-default"><span class="glyphicon glyphicon-envelope"></a>
                 <a tooltip="Copy email addresses of selected users" ng-click="copyToClipboard()" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></a>

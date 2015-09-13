@@ -1,64 +1,62 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit minimal" id="banner">
+  <div class="top-gradient"></div>
+  <div class="left-gradient"></div>
+  <div class="verse">But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.</div>
+</header>
 <div class="container profile">
     <div class="row">
-        <div class="panel panel-warning">
-            <div class="panel-heading">
-                <h3 class="panel-title">Basic Data</h3>
-            </div>
-            <div class="panel-body">
-                <div class="row">
-                    <div class="col-xs-8">
-                        <table class="table">
-                            <tbody>
-                                <tr>
-                                    <td>Name</td>
-                                    <td><strong>{{firstname}} {{lastname}}</strong></td>
-                                </tr>
-                                <tr>
-                                    <td>Email</td>
-                                    <td><strong>{{email}}</strong></td>
-                                </tr>
-                                <tr ng-show="phone">
-                                    <td>Phone #</td>
-                                    <td><strong>{{phone | tel}}</strong></td>
-                                </tr>
-                                <tr ng-show="nationality">
-                                    <td>Nationality</td>
-                                    <td><strong>{{nationality}}</strong></td>
-                                </tr>
-                                 <tr ng-show="tags">
-                                    <td>Mailing Lists</td>
-                                    <td><span class="tag" ng-repeat="tag in tags">{{tag.name}}</span></td>
-                                </tr>
-                                <tr ng-show="facebook || twitter || linkedin">
-                                    <td>Social Media:</td>
-                                    <td>
-                                        <a ng-show="facebook" ng-href="{{facebook}}" target="_blank">Facebook<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
-                                        <a ng-show="twitter" ng-href="{{twitter}}" target="_blank">Twitter<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
-                                        <a ng-show="linkedin" ng-href="{{linkedin}}" target="_blank">LinkedIn<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
-                                    </td>
-                                </tr>
-                                <tr ng-show="blurb">
-                                    <td>About Me</td>
-                                    <td><strong>{{blurb}}</strong></td>
-                                </tr>
-                                <tr ng-show="hometown">
-                                    <td>Hometown</td>
-                                    <td><a href="https://maps.google.com?q={{hometown}}" target="_blank">{{hometown}}<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                       
-                        <a href="https://maps.google.com?q={{hometown}}" target="_blank">
-                            <img ng-show="hometown" class="hometown" src="https://maps.googleapis.com/maps/api/staticmap?center={{hometown}}}&zoom=6&size=600x300&maptype=roadmap&markers=color:blue%7C{{hometown}}}" /></a>
-                        <button class="btn btn-lg btn-primary" ng-show="isCurrentUser" ng-click="change()">Edit info</button>
-                    </div>
-                    <div class="col-xs-4">
-                        <img class="panel panel-default picture" ng-src="{{picture || randomDefaultPic()}}" />
-                    </div>
-                </div>
-            </div>
-        </div>
+      <div class="row">
+          <div class="col-xs-8">
+              <table class="table">
+                  <tbody>
+                      <tr>
+                          <td>Name</td>
+                          <td><strong>{{firstname}} {{lastname}}</strong></td>
+                      </tr>
+                      <tr>
+                          <td>Email</td>
+                          <td><strong>{{email}}</strong></td>
+                      </tr>
+                      <tr ng-show="phone">
+                          <td>Phone #</td>
+                          <td><strong>{{phone | tel}}</strong></td>
+                      </tr>
+                      <tr ng-show="nationality">
+                          <td>Nationality</td>
+                          <td><strong>{{nationality}}</strong></td>
+                      </tr>
+                       <tr ng-show="tags">
+                          <td>Mailing Lists</td>
+                          <td><span class="tag" ng-repeat="tag in tags">{{tag.name}}</span></td>
+                      </tr>
+                      <tr ng-show="facebook || twitter || linkedin">
+                          <td>Social Media:</td>
+                          <td>
+                              <a ng-show="facebook" ng-href="{{facebook}}" target="_blank">Facebook<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                              <a ng-show="twitter" ng-href="{{twitter}}" target="_blank">Twitter<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                              <a ng-show="linkedin" ng-href="{{linkedin}}" target="_blank">LinkedIn<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a>
+                          </td>
+                      </tr>
+                      <tr ng-show="blurb">
+                          <td>About Me</td>
+                          <td><strong>{{blurb}}</strong></td>
+                      </tr>
+                      <tr ng-show="hometown">
+                          <td>Hometown</td>
+                          <td><a href="https://maps.google.com?q={{hometown}}" target="_blank">{{hometown}}<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td>
+                      </tr>
+                  </tbody>
+              </table>
+
+              <a href="https://maps.google.com?q={{hometown}}" target="_blank">
+                  <img ng-show="hometown" class="hometown" src="https://maps.googleapis.com/maps/api/staticmap?center={{hometown}}}&zoom=6&size=600x300&maptype=roadmap&markers=color:blue%7C{{hometown}}}" /></a>
+              <button class="btn btn-lg btn-primary" ng-show="isCurrentUser" ng-click="change()">Edit info</button>
+          </div>
+          <div class="col-xs-4">
+              <img class="picture" ng-src="{{picture || randomDefaultPic()}}" />
+          </div>
+      </div>
     </div>
 </div>
 <script type="text/ng-template" id="myModalContent.html">
@@ -113,12 +111,12 @@
             <div>
                 <label>I'd like to be on the following mailing lists: <span class="not-required">(Not required)</span></label>
             </div>
-            <div class="checkbox" ng-repeat="tag in tags"> 
+            <div class="checkbox" ng-repeat="tag in tags">
               <label>
                 <input type="checkbox" ng-model="selectedTags[tag._id]">{{tag.name}}
               </label>
             </div>
-           
+
             </div>
         <div class="form-group">
             <div>

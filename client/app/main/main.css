@@ -2,20 +2,9 @@
     margin: 20px 0;
 }
 
-#banner {
-    border-bottom: none;
-    margin-top: -40px;
-}
-
-#banner h2 {    
-    line-height: 1;
-    color: #1ab188;
-    font-weight: bold;
-}
-
 .hero-unit {
     position: relative;
-    padding: 30px 15px;
+    padding: 0;
     color: black;
     text-align: center;
     text-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
@@ -61,7 +50,6 @@
     overflow-wrap: break-word;
     min-width: 100px;
     position: relative;
-    background: rgb(255, 250, 242);
 }
 
 .directory img {
@@ -77,7 +65,6 @@
 .navbar-nav {
     margin: 0;
     width: 100%;
-    border-top: 1px solid black;
     padding: 5px;
 }
 
@@ -113,11 +100,6 @@ table.no-overflow {
 .directory-table {
     table-layout: fixed;
 }
-
-tbody > tr, tbody > tr > th, tbody > tr > td {
-    background: #f9f9f9;
-}
-
 
 .table-hover > tbody > tr, .table-hover > tbody > tr > th, .table-hover > tbody > tr > td {
     background: #f9f9f9;
