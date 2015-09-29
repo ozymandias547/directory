@@ -195,7 +195,7 @@ select.form-control {
   background-size: cover;
   background-position: 50%;
   position: relative;
-  margin-bottom: 30px;
+  margin-bottom: 80px;
 }
 
 .hero-unit.minimal {
@@ -311,6 +311,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
 
 .faces-banner {
   background: white;
+  margin-bottom: 60px;
 }
 
 .faces-banner img {
@@ -320,7 +321,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
 .login-row {
   background: white;
   margin-top: 40px;
-  padding-bottom: 80px;
+  margin-bottom: 80px;
 }
 
 .basic-contact-info {
@@ -330,6 +331,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
 
 .login-row-info {
   text-align: center;
+  padding: 30px;
 }
 
 .login-row-info-container {
@@ -350,8 +352,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
 @media (min-width: 768px) {
   .login-row-info-container  {
     display: inline-block;
-    width: 60%;
+    width: 80%;
     text-align: left;
+    font-size: 14px;
   }
   .navbar-default .navbar-nav > li > a {
     font-size: 18px;

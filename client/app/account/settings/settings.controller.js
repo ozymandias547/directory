@@ -20,7 +20,8 @@ angular.module('directoryApp')
             }
         };
          $scope.logout = function() {
-          Auth.logout();
-          $location.path('/');
-        };
+     Auth.logout();
+     $location.path('/');
+ };
+
     });

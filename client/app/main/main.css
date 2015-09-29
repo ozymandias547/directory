@@ -102,10 +102,12 @@ table.no-overflow {
     font-weight: bold;
 }
 
-.table-hover > tbody > tr, .table-hover > tbody > tr > th, .table-hover > tbody > tr > td {
+.table-hover > tbody > tr,
+.table-hover > tbody > tr > th,
+.table-hover > tbody > tr > td {
     background: #f9f9f9;
-  overflow: hidden;
-  text-overflow: ellipsis;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .selected-users {
@@ -124,21 +126,24 @@ table.no-overflow {
     padding: 6px;
     margin-bottom: 0px;
     margin-right: 5px;
+    font-size: 14px;
+    background-color: #949EC5;
+    color: white;
 }
 
 .select-profile-button.selected {
     color: green;
 }
 
-.table-hover > tbody > tr, .table-hover > tbody > tr > th, .table-hover > tbody > tr > td {
+.table-hover > tbody > tr,
+.table-hover > tbody > tr > th,
+.table-hover > tbody > tr > td {
     background: #f9f9f9;
 }
 
-.whatisthis  {
-
-  font-size: 10px;
-  color: blue;
-
+.whatisthis {
+    font-size: 10px;
+    color: blue;
 }
 
 .tag-btn-group .btn {
@@ -146,12 +151,11 @@ table.no-overflow {
 }
 
 .adv-btn-group .btn.active {
-    background: #FFAA26;
+    background-color: #949EC5;
+    color: white;
 }
 
-.btn-group
-
-@media (min-width: 768px) {
+.btn-group @media (min-width: 768px) {
     .navbar-text {
         display: none;
     }

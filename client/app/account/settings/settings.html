@@ -1,49 +1,38 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <header class="hero-unit minimal" id="banner">
-  <div class="top-gradient"></div>
-  <div class="left-gradient"></div>
-  <div class="verse">But the fruit of the Spirit is love, joy, peace, patience, kindness, goodness, faithfulness, gentleness, self-control; against such things there is no law.</div>
+    <div class="top-gradient"></div>
+    <div class="left-gradient"></div>
+    <div class="verse">A friend loves at all times, And a brother is born for adversity. Proverbs 17:7</div>
 </header>
 <div class="container">
-  <div class="row">
-  <div class="col-sm-offset-3 col-sm-6">
-    <h3>Account:</h3>
-    <a href="" ng-click="logout()">Logout</a>
-    </div>
-  </div>
-  <div class="row ">
-
-
-    <div class="col-sm-offset-3 col-sm-6">
-      <h3>Change Password</h3>
-      <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
-
-        <div class="form-group">
-          <label>Current Password</label>
-
-          <input type="password" name="password" class="form-control" ng-model="user.oldPassword"
-                 mongoose-error/>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
-          </p>
+    <div class="row">
+        <div class="col-sm-offset-3 col-sm-6">
+            <h3>Account:</h3>
+            <a href="" ng-click="logout()">Logout</a>
         </div>
-
-        <div class="form-group">
-          <label>New Password</label>
-
-          <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword"
-                 ng-minlength="3"
-                 required/>
-          <p class="help-block"
-             ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
-            Password must be at least 3 characters.
-          </p>
-        </div>
-
-        <p class="help-block"> {{ message }} </p>
-        <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
-        <button class="btn btn-lg btn-default" type="button" ng-click="back()">Cancel</button>
-      </form>
     </div>
-  </div>
+    <div class="row ">
+        <div class="col-sm-offset-3 col-sm-6">
+            <h3>Change Password</h3>
+            <form class="form" name="form" ng-submit="changePassword(form)" novalidate>
+                <div class="form-group">
+                    <label>Current Password</label>
+                    <input type="password" name="password" class="form-control" ng-model="user.oldPassword" mongoose-error/>
+                    <p class="help-block" ng-show="form.password.$error.mongoose">
+                        {{ errors.other }}
+                    </p>
+                </div>
+                <div class="form-group">
+                    <label>New Password</label>
+                    <input type="password" name="newPassword" class="form-control" ng-model="user.newPassword" ng-minlength="3" required/>
+                    <p class="help-block" ng-show="(form.newPassword.$error.minlength || form.newPassword.$error.required) && (form.newPassword.$dirty || submitted)">
+                        Password must be at least 3 characters.
+                    </p>
+                </div>
+                <p class="help-block"> {{ message }} </p>
+                <button class="btn btn-lg btn-primary" type="submit">Save changes</button>
+                <button class="btn btn-lg btn-default" type="button" ng-click="back()">Cancel</button>
+            </form>
+        </div>
+    </div>
 </div>
