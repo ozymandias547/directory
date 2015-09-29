@@ -339,6 +339,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
 
 }
 
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  background: white;
+}
+
 @media (min-width: 768px) {
   .login-row-info-container  {
     display: inline-block;
@@ -349,6 +353,9 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
     font-size: 18px;
     color: #DFDFDF;
   }
+  .navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  background: none;
+}
 }
 
 
@@ -362,6 +369,4 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
     background-color: rgba(255, 255, 255, 1);
 }
 
-.navbar-default .navbar-collapse, .navbar-default .navbar-form {
-  background: white;
-}
+
