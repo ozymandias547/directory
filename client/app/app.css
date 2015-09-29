@@ -1,3 +1,16 @@
+
+.login-page {
+  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f4fbff+0,eff9ff+49,f4fbff+100 */
+  background: rgb(244,251,255); /* Old browsers */
+  background: -moz-linear-gradient(left,  rgba(244,251,255,1) 0%, rgba(239,249,255,1) 49%, rgba(244,251,255,1) 100%); /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, right top, color-stop(0%,rgba(244,251,255,1)), color-stop(49%,rgba(239,249,255,1)), color-stop(100%,rgba(244,251,255,1))); /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(left,  rgba(244,251,255,1) 0%,rgba(239,249,255,1) 49%,rgba(244,251,255,1) 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(left,  rgba(244,251,255,1) 0%,rgba(239,249,255,1) 49%,rgba(244,251,255,1) 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(left,  rgba(244,251,255,1) 0%,rgba(239,249,255,1) 49%,rgba(244,251,255,1) 100%); /* IE10+ */
+  background: linear-gradient(to right,  rgba(244,251,255,1) 0%,rgba(239,249,255,1) 49%,rgba(244,251,255,1) 100%); /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f4fbff', endColorstr='#f4fbff',GradientType=1 ); /* IE6-9 */
+}
+
 /**
  * Bootstrap Fonts
  */
@@ -109,8 +122,8 @@ label {
     border: none;
 }
 
-h1 {
-    color: rgb(35, 92, 70);
+h1, h2, h3 {
+    font-weight: bold;
 }
 
 .form-group textarea {
@@ -131,13 +144,13 @@ input[type=number],
 [type=email].form-control,
 [type=tel].form-control,
 [contenteditable].form-control {
-    padding-left: 10px !important;
+    /*padding-left: 10px !important;
     -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;*/
 }
 
 textarea:focus, textarea.form-control:focus, input.form-control:focus, input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, [type=text].form-control:focus, [type=password].form-control:focus, [type=email].form-control:focus, [type=tel].form-control:focus, [contenteditable].form-control:focus {
-  background: white;
+  /*background: white;*/
 }
 
 select,
@@ -174,7 +187,7 @@ select.form-control {
   margin-top: -40px;
   padding: 0;
   height: 500px;
-  background: url(/assets/images/blueberries.jpg);
+  background: url(/assets/images/blueberries_dark.jpg);
   background-size: cover;
   background-position: 50%;
   position: relative;
@@ -182,53 +195,138 @@ select.form-control {
 }
 
 .hero-unit.minimal {
-  height: 200px;
+  height: 114px;
 }
 
 .hero-unit .verse {
+    position: absolute;
+    color: white;
+    bottom: 30px;
+    right: 10px;
+    font-size: 17px;
+    width: 23%;
+    line-height: 1.5;
+}
+
+.hero-unit .title {
   position: absolute;
-  color: white;
-  top: 24%;
-  left: 6%;
-  font-size: 26px;
-  width: 31%;
+  top: 58px;
+  left: 28px;
+  font-size: 18px;
+  color: #DFDFDF;
+}
+
+.hero-unit .tagline {
+    position: absolute;
+    top: 40%;
+    left: 150px;
+    color: white;
+    font-weight: bold;
+    font-size: 28px;
+    line-height: 1.2;
+}
+
+.hero-unit .call-to-action {
+    position: absolute;
+    top: 57%;
+    left: 253px;
+    color: white;
+    font-weight: bold;
+    font-size: 17px;
+    background-color: #45aaff;
+    padding: 10px 20px;
 }
 
 .hero-unit.minimal .verse{
-  top: 33%;
-  font-size: 15px;
+  top: 50px;
+  left: 10px;
+  width: 40%;
+  font-size: 14px;
 }
 
 .hero-unit .top-gradient {
-  /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.65+0,0+100 */
-  background: -moz-linear-gradient(top,  rgba(0,0,0,0.65) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
-  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.65)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
-  background: -webkit-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
-  background: linear-gradient(to bottom,  rgba(0,0,0,0.65) 0%,rgba(0,0,0,0) 100%); /* W3C */
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#a6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#000000+0,000000+100&amp;0.9+0,0+100;Neutral+Density */
+background: -moz-linear-gradient(top,  rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(0,0,0,0.9)), color-stop(100%,rgba(0,0,0,0))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(0,0,0,0.9) 0%,rgba(0,0,0,0) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(0,0,0,0.9) 0%,rgba(0,0,0,0) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(0,0,0,0.9) 0%,rgba(0,0,0,0) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(0,0,0,0.9) 0%,rgba(0,0,0,0) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', endColorstr='#00000000',GradientType=0 ); /* IE6-9 */
+
 
   height: 100px;
 
 }
 
-.hero-unit .left-gradient {
-  background: rgba(0,0,0,1);
-  background: -moz-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-  background: -webkit-gradient(left top, right top, color-stop(0%, rgba(0,0,0,1)), color-stop(100%, rgba(255,255,255,0)));
-  background: -webkit-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-  background: -o-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-  background: -ms-linear-gradient(left, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-  background: linear-gradient(to right, rgba(0,0,0,1) 0%, rgba(255,255,255,0) 100%);
-  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#ffffff', GradientType=1 );
-  height: 100%;
-  width: 27%;
-  position: absolute;
-  left: 0;
-  top: 0;
-}
 
 .nav-pills > li {
   float: right;
+}
+
+.promotional-banner  {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+.promotional-banner ul {
+  margin: 0px auto;
+  display: inline-block;
+  text-align: left;
+  font-size: 22px;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+.promotional-banner h3 {
+  font-weight: bold;
+}
+
+.faces-banner {
+  background: white;
+}
+
+.faces-banner img {
+  width: 100%;
+}
+
+.login-row {
+  background: white;
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+.basic-contact-info {
+  text-align: center;
+  background: white;
+}
+
+.login-row-info {
+  text-align: center;
+}
+
+.login-row-info-container {
+  display: inline-block;
+    text-align: left;
+    line-height: 1;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    font-size: 17px;
+
+}
+
+@media (min-width: 768px) {
+  .login-row-info-container  {
+    display: inline-block;
+    width: 60%;
+    text-align: left;
+  }
+}
+
+
+@media (min-width: 992px) {
+  .container {
+      width: 100%;
+  }
 }

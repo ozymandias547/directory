@@ -5,7 +5,7 @@ angular.module('directoryApp')
    
     var state = {
       selectedProfiles : [],
-      viewMode: "tile"
+      viewMode: "list"
     }
 
    return {
