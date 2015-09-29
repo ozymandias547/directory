@@ -1,4 +1,9 @@
 
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 18px;
+}
+
 .login-page {
   /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f4fbff+0,eff9ff+49,f4fbff+100 */
   background: rgb(244,251,255); /* Old browsers */
@@ -44,7 +49,7 @@
 
 label {
     color: black;
-    font-size: 14px;
+    font-size: 16px;
     font-weight: bold;
 }
 
@@ -144,9 +149,8 @@ input[type=number],
 [type=email].form-control,
 [type=tel].form-control,
 [contenteditable].form-control {
-    /*padding-left: 10px !important;
-    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3) !important;*/
+   height: 37px;
+    font-size: 20px;
 }
 
 textarea:focus, textarea.form-control:focus, input.form-control:focus, input[type=text]:focus, input[type=password]:focus, input[type=email]:focus, input[type=number]:focus, [type=text].form-control:focus, [type=password].form-control:focus, [type=email].form-control:focus, [type=tel].form-control:focus, [contenteditable].form-control:focus {
@@ -157,8 +161,8 @@ select,
 select.form-control {
     height: 37px !important;
     padding-left: 10px !important;
-    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
-    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+  /*  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);*/
 }
 
 .navbar-default .navbar-nav > li > a {
@@ -261,10 +265,10 @@ select.form-control {
 }
 
 .hero-unit.minimal .verse{
-  top: 50px;
-  left: 10px;
-  width: 40%;
-  font-size: 14px;
+      top: 54px;
+    left: 10px;
+    width: 40%;
+    font-size: 16px;
 }
 
 .hero-unit .top-gradient {
@@ -340,7 +344,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
 }
 
 .navbar-default .navbar-collapse, .navbar-default .navbar-form {
-  background: white;
+  background: #6A798C;
 }
 
 @media (min-width: 768px) {
@@ -352,19 +356,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
   .navbar-default .navbar-nav > li > a {
     font-size: 18px;
     color: #DFDFDF;
+    font-weight: bold;
   }
   .navbar-default .navbar-collapse, .navbar-default .navbar-form {
   background: none;
 }
 }
-
-
-@media (min-width: 992px) {
-  .container {
-      width: 100%;
-  }
-}
-
 .navbar-default .navbar-toggle .icon-bar {
     background-color: rgba(255, 255, 255, 1);
 }

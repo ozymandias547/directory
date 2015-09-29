@@ -99,6 +99,7 @@ table.no-overflow {
 
 .directory-table {
     table-layout: fixed;
+    font-weight: bold;
 }
 
 .table-hover > tbody > tr, .table-hover > tbody > tr > th, .table-hover > tbody > tr > td {
@@ -173,6 +174,6 @@ table.no-overflow {
     }
     .user-name {
         margin-top: 24px;
-        font-size: 16px;
+        font-size: 20px;
     }
 }

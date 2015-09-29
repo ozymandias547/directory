@@ -13,4 +13,9 @@ angular.module('directoryApp')
       return route === $location.path();
     };
     
+     $scope.logout = function() {
+          Auth.logout();
+          $location.path('/');
+        };
+    
   });
