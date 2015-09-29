@@ -163,7 +163,7 @@ select.form-control {
 
 .navbar-default .navbar-nav > li > a {
     font-size: 18px;
-    color: #DFDFDF;
+    color: black;
 }
 
 .navbar-default .navbar-text {
@@ -199,6 +199,7 @@ select.form-control {
 }
 
 .hero-unit .verse {
+  display: none;
     position: absolute;
     color: white;
     bottom: 30px;
@@ -207,6 +208,8 @@ select.form-control {
     width: 23%;
     line-height: 1.5;
 }
+
+
 
 .hero-unit .title {
   position: absolute;
@@ -217,9 +220,9 @@ select.form-control {
 }
 
 .hero-unit .tagline {
-    position: absolute;
-    top: 40%;
-    left: 150px;
+    position: static;
+    padding-top: 96px;
+    margin-bottom: 20px;
     color: white;
     font-weight: bold;
     font-size: 28px;
@@ -227,14 +230,34 @@ select.form-control {
 }
 
 .hero-unit .call-to-action {
-    position: absolute;
-    top: 57%;
-    left: 253px;
+    position: static;
     color: white;
     font-weight: bold;
     font-size: 17px;
     background-color: #45aaff;
     padding: 10px 20px;
+}
+
+@media (min-width: 768px) {
+
+  .hero-unit .verse {
+    display: block;
+  }
+
+  .hero-unit .tagline {
+    padding-top: 0;
+    position: absolute;
+    top: 40%;
+    left: 150px;
+  }
+
+  .hero-unit .call-to-action {
+    position: absolute;
+    top: 57%;
+    left: 253px;
+   
+  }
+
 }
 
 .hero-unit.minimal .verse{
@@ -293,7 +316,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
 .login-row {
   background: white;
   margin-top: 40px;
-  margin-bottom: 40px;
+  padding-bottom: 80px;
 }
 
 .basic-contact-info {
@@ -322,6 +345,10 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
     width: 60%;
     text-align: left;
   }
+  .navbar-default .navbar-nav > li > a {
+    font-size: 18px;
+    color: #DFDFDF;
+  }
 }
 
 
@@ -329,4 +356,12 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6000000', e
   .container {
       width: 100%;
   }
+}
+
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: rgba(255, 255, 255, 1);
+}
+
+.navbar-default .navbar-collapse, .navbar-default .navbar-form {
+  background: white;
 }
