@@ -18,7 +18,7 @@
                 <li ng-show="isLoggedIn()" ng-class="{active: isActive('/profile/' + currentUserId)}"><a href="/profile/{{currentUserId}}">My Profile</a></li>
                 <li ng-show="isAdmin()" ng-class="{active: isActive('/admin')}"><a href="/admin">Admin</a></li>
                 <li ng-show="isLoggedIn()" ng-class="{active: isActive('/settings')}"><a href="/settings">Settings</a></li>
-                <li ng-show="isLoggedIn()" ng-click="logout()"><a href="/settings">Sign out</a></li>
+                <li ng-show="isLoggedIn()" ng-click="logout()"><a href="/">Sign out</a></li>
             </ul>
         </div>
     </div>

@@ -5,7 +5,6 @@
     <div class="verse">Be devoted to one another in love. Honor one another above yourselves. Romans 12:10</div>
 </header>
 <div class="container profile">
-    <div class="row">
         <div class="row">
             <div class="col-xs-8">
                 <table class="table">
@@ -46,17 +45,19 @@
                             <td>Hometown</td>
                             <td><a href="https://maps.google.com?q={{hometown}}" target="_blank">{{hometown}}<span class="glyphicon glyphicon-new-window" aria-hidden="true"></span></a></td>
                         </tr>
+                         <tr>
+                            <td><button class="btn btn-lg btn-primary" ng-show="isCurrentUser" ng-click="change()">Edit info</button></td><td></td>
+                        </tr>
+
                     </tbody>
                 </table>
                 <a href="https://maps.google.com?q={{hometown}}" target="_blank">
                     <img ng-show="hometown" class="hometown" src="https://maps.googleapis.com/maps/api/staticmap?center={{hometown}}}&zoom=6&size=600x300&maptype=roadmap&markers=color:blue%7C{{hometown}}}" /></a>
-                <button class="btn btn-lg btn-primary" ng-show="isCurrentUser" ng-click="change()">Edit info</button>
             </div>
             <div class="col-xs-4">
-                <img class="picture" ng-src="{{picture || randomDefaultPic()}}" />
+                <img class="picture" ng-src="{{picture}}" onError="this.src='/assets/images/profile.png';"/>
             </div>
         </div>
-    </div>
 </div>
 <script type="text/ng-template" id="myModalContent.html">
     <div class="modal-header">

@@ -18,6 +18,8 @@ angular.module('directoryApp')
             })
         });
 
+        $("body").scrollTop(0)
+
         $scope.currentTags = [];
 
         // Build tags to filter by. 
@@ -32,17 +34,7 @@ angular.module('directoryApp')
 
 
         $scope.defaultPic = function() {
-
-            var pics = [
-                "http://facebookcraze.com/wp-content/uploads/2010/10/funny-different-facebook-profile-pic-chicken.jpg",
-                "http://www.theprofilepictures.com/wp-content/uploads/2011/08/alternative-facebook-profile-picture-superman-funny-joke.jpg",
-                "http://www.theprofilepictures.com/wp-content/uploads/2011/08/alternative-facebook-profile-picture-superman-funny-joke.jpg",
-                "http://www.vincegolangco.com/wp-content/uploads/2010/12/mickey-mouse-for-facebook.jpg",
-                "http://media-cache-ec0.pinimg.com/236x/1c/76/36/1c7636906717be2719923f3e83c4502c.jpg"
-            ]
-
-            return "http://www.theprofilepictures.com/wp-content/uploads/2011/08/alternative-facebook-profile-picture-superman-funny-joke.jpg";
-
+            return "/assets/images/profile.png";
         }
 
         $scope.setDisplayMode = function(viewMode) {
