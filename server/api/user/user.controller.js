@@ -3,8 +3,24 @@
 var User = require('./user.model');
 var passport = require('passport');
 var config = require('../../config/environment');
+var secretConfig = require('../../config/local.env.js');
 var jwt = require('jsonwebtoken');
 var _ = require('lodash');
+var moment = require('moment');
+var nodemailer = require('nodemailer');
+var crypto = require('crypto');
+
+
+
+var transporter = nodemailer.createTransport({
+  service: 'Gmail',
+  auth: {
+    user: config.secrets.email,
+    pass: config.secrets.emailPassword
+  }
+});
+
+var resetTokens = [];
 
 var validationError = function(res, err) {
     return res.json(422, err);
@@ -123,6 +139,80 @@ exports.update = function(req, res) {
         }
     });
 };
+
+exports.sendPasswordResetEmail = function(req, res, next) {
+
+  var resetToken = crypto.randomBytes(16).toString('base64');
+
+  resetTokens.push({
+    email: req.body.email,
+    resetToken: resetToken,
+    expireTime: moment().add(15, "minutes").unix()
+  });
+
+  var mailOptions = {
+    from: 'CIEFC Directory ✔ <foo@blurdybloop.com>', // sender address
+    to: req.body.email, // list of receivers
+    subject: 'CIEFC Reset Password ✔', // Subject line
+    html: '<a href="http://directory-josephjung.rhcloud.com/resetPassword?resetToken=' + encodeURIComponent(resetToken) + '">Click here to reset your password</a>' // html body
+  };
+
+  transporter.sendMail(mailOptions, function(error, info){
+    if(error){
+      console.log(error);
+      return res.send(500);
+    }
+    console.log('Message sent: ' + info.response);
+    res.send(200);
+  });
+
+};
+
+exports.resetPassword = function(req, res) {
+
+  var newPass = req.body.newPass;
+  var resetToken = _.findWhere(resetTokens, {resetToken: req.body.resetToken});
+
+  if (resetToken) {
+
+    if (resetToken.expireTime > moment().unix()) {
+
+      var query  = User.where({ email: resetToken.email });
+      query.findOne(function(err, user) {
+
+        if (err) {
+          console.log(err);
+          return res.send(404);
+        }
+
+        if (user) {
+          user.password = newPass;
+          user.save(function(err) {
+            if (err) return validationError(res, err);
+            else {
+              resetTokens.splice( resetTokens.indexOf(resetToken), 1);
+              res.send(200);
+            }
+          });
+        } else {
+          return res.json(403, "Couldn't find a user with that email.");
+        }
+
+      });
+    } else {
+
+      resetTokens.splice( resetTokens.indexOf(resetToken), 1);
+
+      return res.json(403, "Page has expired");
+    }
+  } else {
+    return res.json(403, "Page has expired");
+  }
+
+
+
+};
+
 
 /**
  * Change a users password

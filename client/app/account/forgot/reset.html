@@ -1,0 +1,31 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit minimal" id="banner">
+  <div class="top-gradient"></div>
+  <div class="verse">By this everyone will know that you are my disciples, if you love one another. -John 13:35</div>
+</header>
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm-offset-3 col-sm-6">
+      <h3>Reset Password</h3>
+    </div>
+    <div class="col-sm-offset-3 col-sm-6">
+      <form class="form" name="form" ng-submit="resetPassword(form)" novalidate>
+        <div class="form-group">
+          <label>New password:</label>
+          <input type="password" name="password" class="form-control" ng-model="password" />
+          <label>New password again:</label>
+          <input type="password" name="repeatPassword" class="form-control" ng-model="repeatPassword" />
+        </div>
+        <button class="btn btn-lg btn-primary" type="submit">Change Password</button>
+        <button class="btn btn-link" type="button" ng-click="back()">Cancel</button>
+        <p class="help-block" ng-show="error" style="color:red;" >
+          {{ error }}
+        </p>
+        <p class="help-block" ng-show="message">
+          {{ message }}
+        </p>
+      </form>
+    </div>
+  </div>
+</div>

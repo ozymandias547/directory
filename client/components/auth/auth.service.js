@@ -91,15 +91,39 @@ angular.module('directoryApp')
           return cb(err);
         }).$promise;
       },
-      forgotPassword: function(email, callback) {
-         var cb = callback || angular.noop;
+      forgotPassword: function(email) {
+        var deferred = $q.defer();
 
-        return User.forgotPassword({ email: email 
-        }, function() {
-          return cb();
-        }, function(err) {
-          return cb(err);
-        }).$promise;
+        $http.post('/api/users/sendPasswordResetEmail', {
+          email: email
+        }).
+          success(function(data) {
+            deferred.resolve(data);
+          }).
+          error(function(err) {
+            deferred.reject(err);
+          });
+
+        return deferred.promise;
+
+      },
+      resetPassword: function(password, resetToken) {
+        var deferred = $q.defer();
+
+        $http.post('/api/users/resetPassword', {
+          newPass: password,
+          resetToken: resetToken
+        }).
+          success(function(data) {
+            deferred.resolve(data);
+          }).
+          error(function(err) {
+
+            deferred.reject(err);
+          });
+
+        return deferred.promise;
+
       },
       updateProfile: function(userData, callback) {
          var cb = callback || angular.noop;

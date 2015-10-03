@@ -67,8 +67,8 @@ User.find({}).remove(function() {
     role: 'admin',
     firstname: 'Joseph',
     lastname: 'Jung',
-    email: 'd@d.com',
-    password: 'd',
+    email: 'jungyue@gmail.com',
+    password: 'a',
     position: 'friend'
   }, function() {
       console.log('finished populating users');

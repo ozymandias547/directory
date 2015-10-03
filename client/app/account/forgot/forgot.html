@@ -1,18 +1,25 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
+<header class="hero-unit minimal" id="banner">
+  <div class="top-gradient"></div>
+  <div class="verse">By this everyone will know that you are my disciples, if you love one another. -John 13:35</div>
+</header>
 
 <div class="container">
   <div class="row">
     <div class="col-sm-offset-3 col-sm-6">
-      <h1>Password Recovery</h1>
+      <h3>Forgot your password?</h3>
     </div>
     <div class="col-sm-offset-3 col-sm-6">
       <form class="form" name="form" ng-submit="forgotPassword(form)" novalidate>
         <div class="form-group">
           <label>Please enter your email address: </label>
-          <input type="email" name="email" class="form-control" ng-model="user.email"
-                 mongoose-error/>
-          <p class="help-block" ng-show="form.password.$error.mongoose">
-              {{ errors.other }}
+          <input type="email" name="email" class="form-control" ng-model="email"
+                 required />
+          <p class="help-block" ng-show="error" style="color:red;" >
+              {{ error }}
+          </p>
+          <p class="help-block" ng-show="message">
+            {{ message }}
           </p>
         </div>
         <button class="btn btn-lg btn-primary" type="submit">Recover Password</button>
@@ -21,3 +28,4 @@
     </div>
   </div>
 </div>
+

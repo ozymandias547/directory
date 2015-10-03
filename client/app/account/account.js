@@ -23,6 +23,11 @@ angular.module('directoryApp')
                 templateUrl: 'app/account/forgot/forgot.html',
                 controller: 'ForgotCtrl'
             })
+            .state('resetPassword', {
+              url: '/resetPassword',
+              templateUrl: 'app/account/forgot/reset.html',
+              controller: 'ResetCtrl'
+            })
             .state('login', {
                 url: '/',
                 templateUrl: 'app/account/login/login.html',

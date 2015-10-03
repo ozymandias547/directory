@@ -155,7 +155,15 @@ table.no-overflow {
     color: white;
 }
 
-.btn-group @media (min-width: 768px) {
+.video-container {
+    text-align: center;
+}
+
+iframe {
+    display: inline-block;
+}
+
+@media (min-width: 768px) {
     .navbar-text {
         display: none;
     }

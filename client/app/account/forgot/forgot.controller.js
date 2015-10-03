@@ -2,13 +2,20 @@
 
 angular.module('directoryApp')
     .controller('ForgotCtrl', function($scope, User, Auth) {
-        $scope.errors = {};
+
         $scope.section = "Forgot Password";
+
         $scope.forgotPassword = function(form) {
-            Auth.forgotPassword(form.email)
+
+          $scope.error = null;
+
+          Auth.forgotPassword(form.email.$modelValue)
                 .then(function() {
                     $scope.message = 'An email has been sent with a new password.';
-                });
-            
+                })
+                .catch(function(e) {
+                  $scope.error = e;
+                })
+
         };
     });
