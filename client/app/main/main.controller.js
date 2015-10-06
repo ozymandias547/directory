@@ -3,6 +3,19 @@
 angular.module('directoryApp')
     .controller('MainCtrl', function($scope, Auth, $location, Users, MainService, $filter) {
         $scope.users = Users.data;
+        
+        // order the users by picture
+        $scope.users = Users.data.sort(function(a, b) {
+            if (a.picture && !b.picture) {
+                return -1;
+            }
+            else if (b.picture && !a.picture) {
+                return 1;
+            } else {
+                return 0;
+            }
+        });
+
         $scope.section = "Directory";
         $scope.dynamicTooltip = 'Hello, World!';
         $scope.positionFilterMode = "all";
