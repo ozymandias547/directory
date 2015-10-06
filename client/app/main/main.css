@@ -35,9 +35,11 @@
 .user-name,
 .user-email {
     text-align: center;
-    font-size: 14px;
     color: black;
     font-size: 10px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
 }
 
 .user-name {
