@@ -93,6 +93,8 @@ angular.module('directoryApp')
 angular.module('directoryApp')
     .controller('EditProfileModalCtrl', function($scope, $modalInstance, ProfileData, TagData, User, Auth) {
 
+         $("body").scrollTop(0)
+
         $scope.firstname = ProfileData.firstname;
         $scope.lastname = ProfileData.lastname;
         $scope.email = ProfileData.email;
