@@ -2,6 +2,7 @@
 
 var path = require('path');
 var _ = require('lodash');
+var privateConfig = require('../../../privateConfig.js');
 
 function requiredProcessEnv(name) {
   if(!process.env[name]) {
@@ -26,9 +27,9 @@ var all = {
 
   // Secret for session, you will want to change this and make it an environment variable
   secrets: {
-    session: 'directory-secret',
-    email: 'ciefcdirectory@gmail.com',
-    emailPassword: 'YenAndJoe'
+    session: privateConfig.session,
+    email: privateConfig.session,
+    emailPassword: privateConfig.emailPassword
   },
 
   // List of user roles
